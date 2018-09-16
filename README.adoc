@@ -1,10 +1,10 @@
 = Address Book (Level 4)
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
-https://travis-ci.com/CS2103-AY1819S1-W12-1/address-book[image:https://travis-ci.com/CS2103-AY1819S1-W12-1/address-book.svg?branch=master[Build Status]]
+https://travis-ci.com/CS2103-AY1819S1-W12-1/main[image:https://travis-ci.com/CS2103-AY1819S1-W12-1/main.svg?branch=master[Build Status]]
 https://ci.appveyor.com/project/plty/main/branch/master[image:https://ci.appveyor.com/api/projects/status/yvil727ad656xo0d/branch/master?svg=true[Build status]]
 https://coveralls.io/github/CS2103-AY1819S1-W12-1/main?branch=master[image:https://coveralls.io/repos/github/CS2103-AY1819S1-W12-1/main/badge.svg?branch=master[Coverage Status]]
-https://www.codacy.com/app/CS2103-AY1819S1-W12-1/address-book?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CS2103-AY1819S1-W12-1/address-book&amp;utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/6191458394554fed97e0d2ec248b6914[Codacy Badge]]
+https://www.codacy.com/app/CS2103-AY1819S1-W12-1/main?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CS2103-AY1819S1-W12-1/main&amp;utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/6191458394554fed97e0d2ec248b6914[Codacy Badge]]
 
 ifdef::env-github[]
 image::docs/images/Ui.png[width="600"]
