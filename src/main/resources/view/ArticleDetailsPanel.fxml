@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane fx:id="detailsPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <GridPane hgap="10" vgap="10"
+            AnchorPane.topAnchor="5" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5">
+    <columnConstraints>
+      <ColumnConstraints hgrow="NEVER" minWidth="200" maxWidth="200" />
+      <ColumnConstraints hgrow="NEVER" minWidth="100" maxWidth="100" />
+      <ColumnConstraints hgrow="SOMETIMES" />
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="SOMETIMES" />
+    </rowConstraints>
+
+    <ImageView fitWidth="180" fitHeight="180" preserveRatio="true"
+               GridPane.rowSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Image url="@/images/address_book_32.png" />
+    </ImageView>
+
+    <Label text="Name:" styleClass="label-bright"
+           GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+    <Label fx:id="articleDetails" styleClass="label-bright"
+           GridPane.columnIndex="2" />
+
+    <Label text="Tags:" styleClass="label-bright" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+           GridPane.rowIndex="1" GridPane.columnIndex="1" />
+    <FlowPane fx:id="tags" alignment="CENTER_LEFT"
+              GridPane.rowIndex="1" GridPane.columnIndex="2" />
+
+    <Label text="Description:" styleClass="label-bright" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+           GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    <StackPane GridPane.rowIndex="2" GridPane.columnIndex="2" >
+      <TextArea fx:id="description" editable="false" styleClass="text-area" />
+    </StackPane>
+  </GridPane>
+</AnchorPane>

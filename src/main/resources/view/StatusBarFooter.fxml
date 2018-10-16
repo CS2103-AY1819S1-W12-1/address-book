@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import org.controlsfx.control.StatusBar?>
+
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane styleClass="grid-pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+          styleClass="grid-pane">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
+    <ColumnConstraints hgrow="ALWAYS" />
+    <ColumnConstraints hgrow="ALWAYS" />
   </columnConstraints>
   <StatusBar styleClass="stack-pane" fx:id="syncStatus" />
   <StatusBar styleClass="stack-pane" fx:id="saveLocationStatus" GridPane.columnIndex="1" nodeOrientation="RIGHT_TO_LEFT" />

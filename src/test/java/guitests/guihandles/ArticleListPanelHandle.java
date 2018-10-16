@@ -6,7 +6,7 @@ import java.util.Set;
 
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
-import seedu.address.model.article.Article;
+import seedu.lostandfound.model.article.Article;
 
 /**
  * Provides a handle for {@code ArticleListPanel} containing the list of {@code ArticleCard}.

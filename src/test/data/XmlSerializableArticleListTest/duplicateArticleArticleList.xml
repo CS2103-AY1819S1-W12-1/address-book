@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<articlelist>
+
+    <articles>
+        <name>Alice Pauline</name>
+        <phone>94351253</phone>
+        <email>alice@example.com</email>
+        <description>123, Jurong West Ave 6, #08-111</description>
+        <tagged>friends</tagged>
+    </articles>
+
+    <!-- Article with same identity as Alice Pauline -->
+    <articles>
+        <name>Alice Pauline</name>
+        <phone>94351253</phone>
+        <email>pauline@example.com</email>
+        <description>4th street</description>
+    </articles>
+
+</articlelist>

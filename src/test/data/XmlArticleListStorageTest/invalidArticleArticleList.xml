@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<articlelist>
+    <!-- Article with invalid name field -->
+    <articles>
+        <name>Ha!ns Mu@ster</name>
+        <phone isPrivate="false">9482424</phone>
+        <email isPrivate="false">hans@example.com</email>
+        <description isPrivate="false">4th street</description>
+    </articles>
+</articlelist>

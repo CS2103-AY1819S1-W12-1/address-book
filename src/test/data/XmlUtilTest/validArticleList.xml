@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<articlelist>
+    <articles>
+        <name>Hans Muster</name>
+        <phone isPrivate="false">9482424</phone>
+        <email isPrivate="false">hans@example.com</email>
+        <description isPrivate="false">4th street</description>
+    </articles>
+    <articles>
+        <name>Ruth Mueller</name>
+        <phone isPrivate="false">87249245</phone>
+        <email isPrivate="false">ruth@example.com</email>
+        <description isPrivate="false">81th street</description>
+    </articles>
+    <articles>
+        <name>Heinz Kurz</name>
+        <phone isPrivate="false">95352563</phone>
+        <email isPrivate="false">heinz@example.com</email>
+        <description isPrivate="false">wall street</description>
+    </articles>
+    <articles>
+        <name>Cornelia Meier</name>
+        <phone isPrivate="false">87652533</phone>
+        <email isPrivate="false">cornelia@example.com</email>
+        <description isPrivate="false">10th street</description>
+    </articles>
+    <articles>
+        <name>Werner Meyer</name>
+        <phone isPrivate="false">9482224</phone>
+        <email isPrivate="false">werner@example.com</email>
+        <description isPrivate="false">michegan ave</description>
+    </articles>
+    <articles>
+        <name>Lydia Kunz</name>
+        <phone isPrivate="false">9482427</phone>
+        <email isPrivate="false">lydia@example.com</email>
+        <description isPrivate="false">little tokyo</description>
+    </articles>
+    <articles>
+        <name>Anna Best</name>
+        <phone isPrivate="false">9482442</phone>
+        <email isPrivate="false">anna@example.com</email>
+        <description isPrivate="false">4th street</description>
+    </articles>
+    <articles>
+        <name>Stefan Meier</name>
+        <phone isPrivate="false">8482424</phone>
+        <email isPrivate="false">stefan@example.com</email>
+        <description isPrivate="false">little india</description>
+    </articles>
+    <articles>
+        <name>Martin Mueller</name>
+        <phone isPrivate="false">8482131</phone>
+        <email isPrivate="false">hans@example.com</email>
+        <description isPrivate="false">chicago ave</description>
+    </articles>
+</articlelist>

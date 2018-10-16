@@ -1,6 +1,6 @@
 package systemtests;
 
-import static seedu.address.ui.testutil.GuiTestAssert.assertListMatching;
+import static seedu.lostandfound.ui.testutil.GuiTestAssert.assertListMatching;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,17 +8,17 @@ import java.nio.file.Path;
 
 import org.junit.Test;
 
-import seedu.address.model.AddressBook;
-import seedu.address.model.article.Article;
-import seedu.address.model.util.SampleDataUtil;
-import seedu.address.testutil.TestUtil;
+import seedu.lostandfound.model.ArticleList;
+import seedu.lostandfound.model.article.Article;
+import seedu.lostandfound.model.util.SampleDataUtil;
+import seedu.lostandfound.testutil.TestUtil;
 
-public class SampleDataTest extends AddressBookSystemTest {
+public class SampleDataTest extends ArticleListSystemTest {
     /**
      * Returns null to force test app to load data of the file in {@code getDataFileLocation()}.
      */
     @Override
-    protected AddressBook getInitialData() {
+    protected ArticleList getInitialData() {
         return null;
     }
 
@@ -44,7 +44,7 @@ public class SampleDataTest extends AddressBookSystemTest {
     }
 
     @Test
-    public void addressBook_dataFileDoesNotExist_loadSampleData() {
+    public void articleList_dataFileDoesNotExist_loadSampleData() {
         Article[] expectedList = SampleDataUtil.getSampleArticles();
         assertListMatching(getArticleListPanel(), expectedList);
     }

@@ -1,24 +1,24 @@
 package systemtests;
 
 import static org.junit.Assert.assertTrue;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.SelectCommand.MESSAGE_SELECT_ARTICLE_SUCCESS;
-import static seedu.address.testutil.TestUtil.getLastIndex;
-import static seedu.address.testutil.TestUtil.getMidIndex;
-import static seedu.address.testutil.TypicalArticles.KEYWORD_MATCHING_MEIER;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_ARTICLE;
+import static seedu.lostandfound.commons.core.Messages.MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX;
+import static seedu.lostandfound.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.lostandfound.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.lostandfound.logic.commands.SelectCommand.MESSAGE_SELECT_ARTICLE_SUCCESS;
+import static seedu.lostandfound.testutil.TestUtil.getLastIndex;
+import static seedu.lostandfound.testutil.TestUtil.getMidIndex;
+import static seedu.lostandfound.testutil.TypicalArticles.KEYWORD_MATCHING_MEIER;
+import static seedu.lostandfound.testutil.TypicalIndexes.INDEX_FIRST_ARTICLE;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.SelectCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
+import seedu.lostandfound.commons.core.index.Index;
+import seedu.lostandfound.logic.commands.RedoCommand;
+import seedu.lostandfound.logic.commands.SelectCommand;
+import seedu.lostandfound.logic.commands.UndoCommand;
+import seedu.lostandfound.model.Model;
 
-public class SelectCommandSystemTest extends AddressBookSystemTest {
+public class SelectCommandSystemTest extends ArticleListSystemTest {
     @Test
     public void select() {
         /* ------------------------ Perform select operations on the shown unfiltered list -------------------------- */
@@ -54,14 +54,14 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
 
         /* ------------------------ Perform select operations on the shown filtered list ---------------------------- */
 
-        /* Case: filtered article list, select index within bounds of address book but out of bounds of article list
+        /* Case: filtered article list, select index within bounds of article list but out of bounds of article list
          * -> rejected
          */
         showArticlesWithName(KEYWORD_MATCHING_MEIER);
-        int invalidIndex = getModel().getAddressBook().getArticleList().size();
+        int invalidIndex = getModel().getArticleList().getArticleList().size();
         assertCommandFailure(SelectCommand.COMMAND_WORD + " " + invalidIndex, MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX);
 
-        /* Case: filtered article list, select index within bounds of address book and article list -> selected */
+        /* Case: filtered article list, select index within bounds of article list and article list -> selected */
         Index validIndex = Index.fromOneBased(1);
         assertTrue(validIndex.getZeroBased() < getModel().getFilteredArticleList().size());
         command = SelectCommand.COMMAND_WORD + " " + validIndex.getOneBased();
@@ -92,7 +92,7 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
         /* Case: mixed case command word -> rejected */
         assertCommandFailure("SeLeCt 1", MESSAGE_UNKNOWN_COMMAND);
 
-        /* Case: select from empty address book -> rejected */
+        /* Case: select from empty article list -> rejected */
         deleteAllArticles();
         assertCommandFailure(SelectCommand.COMMAND_WORD + " " + INDEX_FIRST_ARTICLE.getOneBased(),
                 MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX);
@@ -105,12 +105,12 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
      * 3. Result display box displays the success message of executing select command with the
      * {@code expectedSelectedCardIndex} of the selected article.<br>
      * 4. {@code Storage} and {@code ArticleListPanel} remain unchanged.<br>
-     * 5. Selected card is at {@code expectedSelectedCardIndex} and the browser url is updated accordingly.<br>
+     * 5. Selected card is at {@code expectedSelectedCardIndex} and the article details is updated accordingly.<br>
      * 6. Status bar remains unchanged.<br>
      * Verifications 1, 3 and 4 are performed by
-     * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
-     * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
-     * @see AddressBookSystemTest#assertSelectedCardChanged(Index)
+     * {@code ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
+     * @see ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)
+     * @see ArticleListSystemTest#assertSelectedCardChanged(Index)
      */
     private void assertCommandSuccess(String command, Index expectedSelectedCardIndex) {
         Model expectedModel = getModel();
@@ -137,10 +137,10 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
      * 2. Command box has the error style class.<br>
      * 3. Result display box displays {@code expectedResultMessage}.<br>
      * 4. {@code Storage} and {@code ArticleListPanel} remain unchanged.<br>
-     * 5. Browser url, selected card and status bar remain unchanged.<br>
+     * 5. Article details, selected card and status bar remain unchanged.<br>
      * Verifications 1, 3 and 4 are performed by
-     * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
-     * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
+     * {@code ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
+     * @see ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandFailure(String command, String expectedResultMessage) {
         Model expectedModel = getModel();

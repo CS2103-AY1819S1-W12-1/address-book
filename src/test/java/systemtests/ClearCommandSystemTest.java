@@ -1,54 +1,54 @@
 package systemtests;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.testutil.TypicalArticles.KEYWORD_MATCHING_MEIER;
+import static seedu.lostandfound.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.lostandfound.testutil.TypicalArticles.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
+import seedu.lostandfound.commons.core.index.Index;
+import seedu.lostandfound.logic.commands.ClearCommand;
+import seedu.lostandfound.logic.commands.RedoCommand;
+import seedu.lostandfound.logic.commands.UndoCommand;
+import seedu.lostandfound.model.Model;
+import seedu.lostandfound.model.ModelManager;
 
-public class ClearCommandSystemTest extends AddressBookSystemTest {
+public class ClearCommandSystemTest extends ArticleListSystemTest {
 
     @Test
     public void clear() {
         final Model defaultModel = getModel();
 
-        /* Case: clear non-empty address book, command with leading spaces and trailing alphanumeric characters and
+        /* Case: clear non-empty article list, command with leading spaces and trailing alphanumeric characters and
          * spaces -> cleared
          */
         assertCommandSuccess("   " + ClearCommand.COMMAND_WORD + " ab12   ");
         assertSelectedCardUnchanged();
 
-        /* Case: undo clearing address book -> original address book restored */
+        /* Case: undo clearing article list -> original article list restored */
         String command = UndoCommand.COMMAND_WORD;
         String expectedResultMessage = UndoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, expectedResultMessage, defaultModel);
         assertSelectedCardUnchanged();
 
-        /* Case: redo clearing address book -> cleared */
+        /* Case: redo clearing article list -> cleared */
         command = RedoCommand.COMMAND_WORD;
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, expectedResultMessage, new ModelManager());
         assertSelectedCardUnchanged();
 
-        /* Case: selects first card in article list and clears address book -> cleared and no card selected */
-        executeCommand(UndoCommand.COMMAND_WORD); // restores the original address book
+        /* Case: selects first card in article list and clears article list -> cleared and no card selected */
+        executeCommand(UndoCommand.COMMAND_WORD); // restores the original article list
         selectArticle(Index.fromOneBased(1));
         assertCommandSuccess(ClearCommand.COMMAND_WORD);
         assertSelectedCardDeselected();
 
-        /* Case: filters the article list before clearing -> entire address book cleared */
-        executeCommand(UndoCommand.COMMAND_WORD); // restores the original address book
+        /* Case: filters the article list before clearing -> entire article list cleared */
+        executeCommand(UndoCommand.COMMAND_WORD); // restores the original article list
         showArticlesWithName(KEYWORD_MATCHING_MEIER);
         assertCommandSuccess(ClearCommand.COMMAND_WORD);
         assertSelectedCardUnchanged();
 
-        /* Case: clear empty address book -> cleared */
+        /* Case: clear empty article list -> cleared */
         assertCommandSuccess(ClearCommand.COMMAND_WORD);
         assertSelectedCardUnchanged();
 
@@ -60,9 +60,9 @@ public class ClearCommandSystemTest extends AddressBookSystemTest {
      * Executes {@code command} and verifies that the command box displays an empty string, the result display
      * box displays {@code ClearCommand#MESSAGE_SUCCESS} and the model related components equal to an empty model.
      * These verifications are done by
-     * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
+     * {@code ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
      * Also verifies that the command box has the default style class and the status bar's sync status changes.
-     * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
+     * @see ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandSuccess(String command) {
         assertCommandSuccess(command, ClearCommand.MESSAGE_SUCCESS, new ModelManager());
@@ -84,10 +84,10 @@ public class ClearCommandSystemTest extends AddressBookSystemTest {
      * Executes {@code command} and verifies that the command box displays {@code command}, the result display
      * box displays {@code expectedResultMessage} and the model related components equal to the current model.
      * These verifications are done by
-     * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
+     * {@code ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
      * Also verifies that the browser url, selected card and status bar remain unchanged, and the command box has the
      * error style.
-     * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
+     * @see ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandFailure(String command, String expectedResultMessage) {
         Model expectedModel = getModel();

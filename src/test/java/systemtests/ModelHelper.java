@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import seedu.address.model.Model;
-import seedu.address.model.article.Article;
+import seedu.lostandfound.model.Model;
+import seedu.lostandfound.model.article.Article;
 
 /**
  * Contains helper methods to set up {@code Model} for testing.

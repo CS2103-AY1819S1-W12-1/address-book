@@ -1,26 +1,26 @@
 package systemtests;
 
 import static org.junit.Assert.assertTrue;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.DeleteCommand.MESSAGE_DELETE_ARTICLE_SUCCESS;
-import static seedu.address.testutil.TestUtil.getArticle;
-import static seedu.address.testutil.TestUtil.getLastIndex;
-import static seedu.address.testutil.TestUtil.getMidIndex;
-import static seedu.address.testutil.TypicalArticles.KEYWORD_MATCHING_MEIER;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_ARTICLE;
+import static seedu.lostandfound.commons.core.Messages.MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX;
+import static seedu.lostandfound.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.lostandfound.logic.commands.DeleteCommand.MESSAGE_DELETE_ARTICLE_SUCCESS;
+import static seedu.lostandfound.testutil.TestUtil.getArticle;
+import static seedu.lostandfound.testutil.TestUtil.getLastIndex;
+import static seedu.lostandfound.testutil.TestUtil.getMidIndex;
+import static seedu.lostandfound.testutil.TypicalArticles.KEYWORD_MATCHING_MEIER;
+import static seedu.lostandfound.testutil.TypicalIndexes.INDEX_FIRST_ARTICLE;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
-import seedu.address.model.article.Article;
+import seedu.lostandfound.commons.core.Messages;
+import seedu.lostandfound.commons.core.index.Index;
+import seedu.lostandfound.logic.commands.DeleteCommand;
+import seedu.lostandfound.logic.commands.RedoCommand;
+import seedu.lostandfound.logic.commands.UndoCommand;
+import seedu.lostandfound.model.Model;
+import seedu.lostandfound.model.article.Article;
 
-public class DeleteCommandSystemTest extends AddressBookSystemTest {
+public class DeleteCommandSystemTest extends ArticleListSystemTest {
 
     private static final String MESSAGE_INVALID_DELETE_COMMAND_FORMAT =
             String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE);
@@ -60,17 +60,17 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
         /* ------------------ Performing delete operation while a filtered list is being shown ---------------------- */
 
-        /* Case: filtered article list, delete index within bounds of address book and article list -> deleted */
+        /* Case: filtered article list, delete index within bounds of article list and article list -> deleted */
         showArticlesWithName(KEYWORD_MATCHING_MEIER);
         Index index = INDEX_FIRST_ARTICLE;
         assertTrue(index.getZeroBased() < getModel().getFilteredArticleList().size());
         assertCommandSuccess(index);
 
-        /* Case: filtered article list, delete index within bounds of address book but out of bounds of article list
+        /* Case: filtered article list, delete index within bounds of article list but out of bounds of article list
          * -> rejected
          */
         showArticlesWithName(KEYWORD_MATCHING_MEIER);
-        int invalidIndex = getModel().getAddressBook().getArticleList().size();
+        int invalidIndex = getModel().getArticleList().getArticleList().size();
         command = DeleteCommand.COMMAND_WORD + " " + invalidIndex;
         assertCommandFailure(command, MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX);
 
@@ -99,7 +99,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: invalid index (size + 1) -> rejected */
         Index outOfBoundsIndex = Index.fromOneBased(
-                getModel().getAddressBook().getArticleList().size() + 1);
+                getModel().getArticleList().getArticleList().size() + 1);
         command = DeleteCommand.COMMAND_WORD + " " + outOfBoundsIndex.getOneBased();
         assertCommandFailure(command, MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX);
 
@@ -114,7 +114,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
     }
 
     /**
-     * Removes the {@code Article} at the specified {@code index} in {@code model}'s address book.
+     * Removes the {@code Article} at the specified {@code index} in {@code model}'s article list.
      * @return the removed article
      */
     private Article removeArticle(Model model, Index index) {
@@ -141,22 +141,23 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
      * Executes {@code command} and in addition,<br>
      * 1. Asserts that the command box displays an empty string.<br>
      * 2. Asserts that the result display box displays {@code expectedResultMessage}.<br>
-     * 3. Asserts that the browser url and selected card remains unchanged.<br>
+     * 3. Asserts that the article details and selected card remains unchanged.<br>
      * 4. Asserts that the status bar's sync status changes.<br>
      * 5. Asserts that the command box has the default style class.<br>
      * Verifications 1 and 2 are performed by
-     * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.
-     * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
+     * {@code ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.
+     * @see ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandSuccess(String command, Model expectedModel, String expectedResultMessage) {
         assertCommandSuccess(command, expectedModel, expectedResultMessage, null);
     }
 
     /**
-     * Performs the same verification as {@code assertCommandSuccess(String, Model, String)} except that the browser url
-     * and selected card are expected to update accordingly depending on the card at {@code expectedSelectedCardIndex}.
+     * Performs the same verification as {@code assertCommandSuccess(String, Model, String)} except that the article
+     * details and selected card are expected to update accordingly depending on the card
+     * at {@code expectedSelectedCardIndex}.
      * @see DeleteCommandSystemTest#assertCommandSuccess(String, Model, String)
-     * @see AddressBookSystemTest#assertSelectedCardChanged(Index)
+     * @see ArticleListSystemTest#assertSelectedCardChanged(Index)
      */
     private void assertCommandSuccess(String command, Model expectedModel, String expectedResultMessage,
             Index expectedSelectedCardIndex) {
@@ -177,11 +178,11 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
      * Executes {@code command} and in addition,<br>
      * 1. Asserts that the command box displays {@code command}.<br>
      * 2. Asserts that result display box displays {@code expectedResultMessage}.<br>
-     * 3. Asserts that the browser url, selected card and status bar remain unchanged.<br>
+     * 3. Asserts that the article details, selected card and status bar remain unchanged.<br>
      * 4. Asserts that the command box has the error style.<br>
      * Verifications 1 and 2 are performed by
-     * {@code AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
-     * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
+     * {@code ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>
+     * @see ArticleListSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandFailure(String command, String expectedResultMessage) {
         Model expectedModel = getModel();
