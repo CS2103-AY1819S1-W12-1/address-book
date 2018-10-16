@@ -5,18 +5,24 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<GridPane fx:id="detailsPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-          hgap="10" vgap="10">
+<AnchorPane fx:id="detailsPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <Label text="Owner" alignment="CENTER" styleClass="label-bright"
+         AnchorPane.topAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5" />
+
+  <GridPane hgap="10" vgap="10"
+            AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5">
     <rowConstraints>
-        <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
     </rowConstraints>
     <columnConstraints>
-        <ColumnConstraints hgrow="NEVER" />
-        <ColumnConstraints hgrow="SOMETIMES" />
+      <ColumnConstraints hgrow="NEVER" />
+      <ColumnConstraints hgrow="SOMETIMES" />
     </columnConstraints>
     <Label text="Name:" styleClass="label-bright"
            GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
     <Label fx:id="owner" styleClass="label-bright"
            GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-</GridPane>
+  </GridPane>
+</AnchorPane>

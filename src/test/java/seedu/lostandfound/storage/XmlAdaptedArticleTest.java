@@ -32,6 +32,8 @@ public class XmlAdaptedArticleTest {
             .map(XmlAdaptedTag::new)
             .collect(Collectors.toList());
 
+    private static final boolean FALSE_ISRESOLVED = false;
+
     @Test
     public void toModelType_validArticleDetails_returnsArticle() throws Exception {
         XmlAdaptedArticle article = new XmlAdaptedArticle(BENSON);
@@ -41,15 +43,17 @@ public class XmlAdaptedArticleTest {
     @Test
     public void toModelType_invalidName_throwsIllegalValueException() {
         XmlAdaptedArticle article =
-                new XmlAdaptedArticle(INVALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
-        String expectedMessage = Name.MESSAGE_NAME_CONSTRAINTS;
+                new XmlAdaptedArticle(INVALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION,
+                        FALSE_ISRESOLVED, VALID_TAGS);
+        String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
 
     @Test
     public void toModelType_nullName_throwsIllegalValueException() {
         XmlAdaptedArticle article = new XmlAdaptedArticle(
-                null, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
+                null, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION,
+                FALSE_ISRESOLVED, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
@@ -57,14 +61,16 @@ public class XmlAdaptedArticleTest {
     @Test
     public void toModelType_invalidPhone_throwsIllegalValueException() {
         XmlAdaptedArticle article =
-                new XmlAdaptedArticle(VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
-        String expectedMessage = Phone.MESSAGE_PHONE_CONSTRAINTS;
+                new XmlAdaptedArticle(VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION,
+                        FALSE_ISRESOLVED, VALID_TAGS);
+        String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
 
     @Test
     public void toModelType_nullPhone_throwsIllegalValueException() {
-        XmlAdaptedArticle article = new XmlAdaptedArticle(VALID_NAME, null, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
+        XmlAdaptedArticle article = new XmlAdaptedArticle(VALID_NAME, null, VALID_EMAIL, VALID_DESCRIPTION,
+                FALSE_ISRESOLVED, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
@@ -72,14 +78,16 @@ public class XmlAdaptedArticleTest {
     @Test
     public void toModelType_invalidEmail_throwsIllegalValueException() {
         XmlAdaptedArticle article =
-                new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, INVALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
-        String expectedMessage = Email.MESSAGE_EMAIL_CONSTRAINTS;
+                new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, INVALID_EMAIL, VALID_DESCRIPTION,
+                        FALSE_ISRESOLVED, VALID_TAGS);
+        String expectedMessage = Email.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
 
     @Test
     public void toModelType_nullEmail_throwsIllegalValueException() {
-        XmlAdaptedArticle article = new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, null, VALID_DESCRIPTION, VALID_TAGS);
+        XmlAdaptedArticle article = new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, null, VALID_DESCRIPTION,
+                FALSE_ISRESOLVED, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
@@ -87,14 +95,16 @@ public class XmlAdaptedArticleTest {
     @Test
     public void toModelType_invalidDescription_throwsIllegalValueException() {
         XmlAdaptedArticle article =
-                new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, VALID_EMAIL, INVALID_DESCRIPTION, VALID_TAGS);
-        String expectedMessage = Description.MESSAGE_DESCRIPTION_CONSTRAINTS;
+                new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, VALID_EMAIL, INVALID_DESCRIPTION,
+                        FALSE_ISRESOLVED, VALID_TAGS);
+        String expectedMessage = Description.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
 
     @Test
     public void toModelType_nullDescription_throwsIllegalValueException() {
-        XmlAdaptedArticle article = new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, VALID_EMAIL, null, VALID_TAGS);
+        XmlAdaptedArticle article = new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, VALID_EMAIL, null,
+                FALSE_ISRESOLVED, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, article::toModelType);
     }
@@ -104,7 +114,8 @@ public class XmlAdaptedArticleTest {
         List<XmlAdaptedTag> invalidTags = new ArrayList<>(VALID_TAGS);
         invalidTags.add(new XmlAdaptedTag(INVALID_TAG));
         XmlAdaptedArticle article =
-                new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, invalidTags);
+                new XmlAdaptedArticle(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION,
+                        FALSE_ISRESOLVED, invalidTags);
         Assert.assertThrows(IllegalValueException.class, article::toModelType);
     }
 

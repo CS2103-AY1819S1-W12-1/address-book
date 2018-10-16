@@ -23,6 +23,7 @@ import seedu.lostandfound.model.tag.Tag;
  * Parses input arguments and creates a new AddCommand object
  */
 public class AddCommandParser implements Parser<AddCommand> {
+    private static final boolean DEFAULT_ISRESOLVED = false;
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
@@ -45,7 +46,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Article article = new Article(name, phone, email, description, tagList);
+        Article article = new Article(name, phone, email, description, DEFAULT_ISRESOLVED, tagList);
 
         return new AddCommand(article);
     }

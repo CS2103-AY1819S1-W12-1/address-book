@@ -24,15 +24,19 @@ public class Article {
     private final Description description;
     private final Set<Tag> tags = new HashSet<>();
 
+    // Others
+    private final boolean isResolved;
+
     /**
      * Every field must be present and not null.
      */
-    public Article(Name name, Phone phone, Email email, Description description, Set<Tag> tags) {
+    public Article(Name name, Phone phone, Email email, Description description, boolean isResolved, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, description, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.description = description;
+        this.isResolved = isResolved;
         this.tags.addAll(tags);
     }
 
@@ -50,6 +54,10 @@ public class Article {
 
     public Description getDescription() {
         return description;
+    }
+
+    public boolean getIsResolved() {
+        return isResolved;
     }
 
     /**
@@ -93,13 +101,14 @@ public class Article {
                 && otherArticle.getPhone().equals(getPhone())
                 && otherArticle.getEmail().equals(getEmail())
                 && otherArticle.getDescription().equals(getDescription())
+                && otherArticle.getIsResolved() == getIsResolved()
                 && otherArticle.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, description, tags);
+        return Objects.hash(name, phone, email, description, isResolved, tags);
     }
 
     @Override
@@ -112,6 +121,8 @@ public class Article {
                 .append(getEmail())
                 .append(" Description: ")
                 .append(getDescription())
+                .append(" isResolved: ")
+                .append(getIsResolved())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

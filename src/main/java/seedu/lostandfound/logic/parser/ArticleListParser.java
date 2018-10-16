@@ -17,6 +17,7 @@ import seedu.lostandfound.logic.commands.HelpCommand;
 import seedu.lostandfound.logic.commands.HistoryCommand;
 import seedu.lostandfound.logic.commands.ListCommand;
 import seedu.lostandfound.logic.commands.RedoCommand;
+import seedu.lostandfound.logic.commands.ResolveCommand;
 import seedu.lostandfound.logic.commands.SelectCommand;
 import seedu.lostandfound.logic.commands.UndoCommand;
 import seedu.lostandfound.logic.parser.exceptions.ParseException;
@@ -60,6 +61,9 @@ public class ArticleListParser {
 
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
+
+        case ResolveCommand.COMMAND_WORD:
+            return new ResolveCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();

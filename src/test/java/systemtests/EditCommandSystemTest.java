@@ -165,24 +165,24 @@ public class EditCommandSystemTest extends ArticleListSystemTest {
 
         /* Case: invalid name -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_ARTICLE.getOneBased() + INVALID_NAME_DESC,
-                Name.MESSAGE_NAME_CONSTRAINTS);
+                Name.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid phone -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_ARTICLE.getOneBased() + INVALID_PHONE_DESC,
-                Phone.MESSAGE_PHONE_CONSTRAINTS);
+                Phone.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid email -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_ARTICLE.getOneBased() + INVALID_EMAIL_DESC,
-                Email.MESSAGE_EMAIL_CONSTRAINTS);
+                Email.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid description -> rejected */
         assertCommandFailure(
                 EditCommand.COMMAND_WORD + " " + INDEX_FIRST_ARTICLE.getOneBased() + INVALID_DESCRIPTION_DESC,
-                Description.MESSAGE_DESCRIPTION_CONSTRAINTS);
+                Description.MESSAGE_CONSTRAINTS);
 
         /* Case: invalid tag -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_ARTICLE.getOneBased() + INVALID_TAG_DESC,
-                Tag.MESSAGE_TAG_CONSTRAINTS);
+                Tag.MESSAGE_CONSTRAINTS);
 
         /* Case: edit a article with new values same as another article's values -> rejected */
         executeCommand(ArticleUtil.getAddCommand(BOB));

@@ -20,11 +20,13 @@ public class ArticleBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_DESCRIPTION = "123, Jurong West Ave 6, #08-111";
+    public static final boolean DEFAULT_ISRESOLVED = false;
 
     private Name name;
     private Phone phone;
     private Email email;
     private Description description;
+    private boolean isResolved;
     private Set<Tag> tags;
 
     public ArticleBuilder() {
@@ -32,6 +34,7 @@ public class ArticleBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         description = new Description(DEFAULT_DESCRIPTION);
+        isResolved = DEFAULT_ISRESOLVED;
         tags = new HashSet<>();
     }
 
@@ -43,6 +46,7 @@ public class ArticleBuilder {
         phone = articleToCopy.getPhone();
         email = articleToCopy.getEmail();
         description = articleToCopy.getDescription();
+        isResolved = articleToCopy.getIsResolved();
         tags = new HashSet<>(articleToCopy.getTags());
     }
 
@@ -51,22 +55,6 @@ public class ArticleBuilder {
      */
     public ArticleBuilder withName(String name) {
         this.name = new Name(name);
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Article} that we are building.
-     */
-    public ArticleBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
-        return this;
-    }
-
-    /**
-     * Sets the {@code Description} of the {@code Article} that we are building.
-     */
-    public ArticleBuilder withDescription(String description) {
-        this.description = new Description(description);
         return this;
     }
 
@@ -86,8 +74,32 @@ public class ArticleBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Description} of the {@code Article} that we are building.
+     */
+    public ArticleBuilder withDescription(String description) {
+        this.description = new Description(description);
+        return this;
+    }
+
+    /**
+     * Sets the {@code isResolved} of the {@code Article} that we are building.
+     */
+    public ArticleBuilder withIsResolved(boolean isResolved) {
+        this.isResolved = false;
+        return this;
+    }
+
+    /**
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Article} that we are building.
+     */
+    public ArticleBuilder withTags(String ... tags) {
+        this.tags = SampleDataUtil.getTagSet(tags);
+        return this;
+    }
+
     public Article build() {
-        return new Article(name, phone, email, description, tags);
+        return new Article(name, phone, email, description, isResolved, tags);
     }
 
 }

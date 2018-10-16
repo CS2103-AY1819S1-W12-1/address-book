@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+
 <?import javafx.scene.Scene?>
+
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
+
 <?import javafx.scene.image.Image?>
+
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.GridPane?>
 <fx:root xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-         type="javafx.stage.Stage" minWidth="800" minHeight="800" maximized="true" onCloseRequest="#handleExit">
+         type="javafx.stage.Stage" maximized="true" onCloseRequest="#handleExit">
   <icons>
     <Image url="@/images/address_book_32.png" />
   </icons>
@@ -50,35 +50,21 @@
           </VBox>
 
           <SplitPane orientation="VERTICAL">
-            <AnchorPane minHeight="300">
-              <HBox alignment="CENTER"
-                    AnchorPane.topAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5">
-                <ImageView fitHeight="150" fitWidth="200" preserveRatio="true">
-                  <Image url="/images/address_book_32.png" />
-                </ImageView>
-              </HBox>
+            <StackPane>
               <StackPane fx:id="articleDetailsPanelPlaceholder"
-                         AnchorPane.topAnchor="200" AnchorPane.leftAnchor="15"
-                         AnchorPane.rightAnchor="15" AnchorPane.bottomAnchor="15" />
-            </AnchorPane>
+                         AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" />
+            </StackPane>
 
-            <SplitPane>
-              <AnchorPane>
-                <Label text="Finder" alignment="CENTER" styleClass="label-bright"
-                       AnchorPane.topAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5" />
-                <StackPane fx:id="finderPanelPlaceholder"
-                          AnchorPane.topAnchor="30" AnchorPane.leftAnchor="5"
-                          AnchorPane.rightAnchor="5" AnchorPane.bottomAnchor="5" />
-              </AnchorPane>
+            <SplitPane minHeight="100" maxHeight="100">
+              <StackPane>
+                <StackPane fx:id="finderPanelPlaceholder" />
+              </StackPane>
 
-              <AnchorPane>
-                <Label text="Owner" alignment="CENTER" styleClass="label-bright"
-                       AnchorPane.topAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5" />
-                <StackPane fx:id="ownerPanelPlaceholder"
-                          AnchorPane.topAnchor="30" AnchorPane.leftAnchor="5"
-                          AnchorPane.rightAnchor="5" AnchorPane.bottomAnchor="5" />
-              </AnchorPane>
+              <StackPane>
+                <StackPane fx:id="ownerPanelPlaceholder" />
+              </StackPane>
             </SplitPane>
+
           </SplitPane>
         </SplitPane>
 

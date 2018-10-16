@@ -42,6 +42,8 @@ public class XmlUtilTest {
     private static final String VALID_DESCRIPTION = "4th street";
     private static final List<XmlAdaptedTag> VALID_TAGS = Collections.singletonList(new XmlAdaptedTag("friends"));
 
+    private static final boolean FALSE_ISRESOLVED = false;
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -80,7 +82,7 @@ public class XmlUtilTest {
         XmlAdaptedArticle actualArticle = XmlUtil.getDataFromFile(
                 MISSING_ARTICLE_FIELD_FILE, XmlAdaptedArticleWithRootElement.class);
         XmlAdaptedArticle expectedArticle = new XmlAdaptedArticle(
-                null, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
+                null, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, FALSE_ISRESOLVED, VALID_TAGS);
         assertEquals(expectedArticle, actualArticle);
     }
 
@@ -89,7 +91,7 @@ public class XmlUtilTest {
         XmlAdaptedArticle actualArticle = XmlUtil.getDataFromFile(
                 INVALID_ARTICLE_FIELD_FILE, XmlAdaptedArticleWithRootElement.class);
         XmlAdaptedArticle expectedArticle = new XmlAdaptedArticle(
-                VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
+                VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, FALSE_ISRESOLVED, VALID_TAGS);
         assertEquals(expectedArticle, actualArticle);
     }
 
@@ -98,7 +100,7 @@ public class XmlUtilTest {
         XmlAdaptedArticle actualArticle = XmlUtil.getDataFromFile(
                 VALID_ARTICLE_FILE, XmlAdaptedArticleWithRootElement.class);
         XmlAdaptedArticle expectedArticle = new XmlAdaptedArticle(
-                VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, VALID_TAGS);
+                VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_DESCRIPTION, FALSE_ISRESOLVED, VALID_TAGS);
         assertEquals(expectedArticle, actualArticle);
     }
 
