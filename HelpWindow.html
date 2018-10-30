@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Lost and Found - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>LostBUTFound - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Lost and Found - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>LostBUTFound - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team W12-1</code>      Since: <code>Sep 2018</code>      Licence: <code>MIT</code></p>
@@ -9,23 +9,43 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#accessing-the-user-guide">1.1. Accessing the user guide</a></li>
+</ul>
+</li>
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#listing-all-articles-code-list-code">3.2. Listing all articles : <code>list</code></a></li>
-<li><a href="#editing-an-article-code-edit-code">3.3. Editing an article : <code>edit</code></a></li>
-<li><a href="#3-5-locating-articles-by-keywords-code-find-code">3.4. 3.5 Locating articles by keywords: <code>find</code></a></li>
-<li><a href="#deleting-an-article-code-delete-code">3.5. Deleting an article: <code>delete</code></a></li>
-<li><a href="#selecting-an-article-code-select-code">3.6. Selecting an article: <code>select</code></a></li>
-<li><a href="#resolve-claimed-articles-code-resolve-code">3.7. Resolve claimed articles: <code>resolve</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands: <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command: <code>undo</code></a></li>
-<li><a href="#redoing-previous-command-code-redo-code">3.10. Redoing previous command: <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries: <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program: <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
+<li><a href="#managing-articles">3.2. Managing articles</a>
+<ul class="sectlevel3">
+<li><a href="#adding-an-article-code-add-code">3.2.1. Adding an article : <code>add</code></a></li>
+<li><a href="#resolving-an-article-code-resolve-code">3.2.2. Resolving an article: <code>resolve</code></a></li>
+<li><a href="#listing-all-articles-code-list-code">3.2.3. Listing all articles : <code>list</code></a></li>
+<li><a href="#editing-an-article-code-edit-code">3.2.4. Editing an article : <code>edit</code></a></li>
+<li><a href="#deleting-an-article-code-delete-code">3.2.5. Deleting an article: <code>delete</code></a></li>
+<li><a href="#selecting-an-article-code-select-code">3.2.6. Selecting an article: <code>select</code></a></li>
+</ul>
+</li>
+<li><a href="#finding-articles">3.3. Finding articles</a>
+<ul class="sectlevel3">
+<li><a href="#finding-unresolved-articles-by-name-code-find-n-code">3.3.1. Finding unresolved articles by name: <code>find-n</code></a></li>
+<li><a href="#finding-unresolved-articles-by-description-code-find-d-code">3.3.2. Finding unresolved articles by description: <code>find-d</code></a></li>
+<li><a href="#finding-unresolved-articles-by-keyword-code-findall-code">3.3.3. Finding unresolved articles by keyword: <code>findall</code></a></li>
+<li><a href="#finding-resolved-articles-by-keyword-code-findresolved-code">3.3.4. Finding resolved articles by keyword: <code>findresolved</code></a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous-commands">3.4. Miscellaneous Commands</a>
+<ul class="sectlevel3">
+<li><a href="#listing-entered-commands-code-history-code">3.4.1. Listing entered commands: <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.4.2. Undoing previous command: <code>undo</code></a></li>
+<li><a href="#redoing-previous-command-code-redo-code">3.4.3. Redoing previous command: <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.4.4. Clearing all entries: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.4.5. Exiting the program: <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.4.6. Saving the data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -37,11 +57,19 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lost and Found is made for lost and found (duh) administrators&#8230;&#8203;<br>
-&#8230;&#8203;with a fear of mice (no pun intended).</p>
+<p>Welcome to <strong>LostBUTFound</strong>! <strong>LostBUTFound</strong> is made for administrators <strong>managing lost and found articles</strong>.</p>
 </div>
 <div class="paragraph">
-<p>It won&#8217;t deter mice, but it makes you finish your job twice as fast.</p>
+<p>More importantly, it is optimized for those who prefer to work with a Command Line Interface (CLI), while still having the benefits of a Graphical User Interface (GUI).</p>
+</div>
+<div class="sect2">
+<h3 id="accessing-the-user-guide"><a class="link" href="#accessing-the-user-guide">1.1. Accessing the user guide</a></h3>
+<div class="paragraph">
+<p>Everything you need to know about LostBUTFound is in this user guide.</p>
+</div>
+<div class="paragraph">
+<p>You can quickly navigate the user guide by clicking on the links found in the table of contents at the top of the user guide.</p>
+</div>
 </div>
 </div>
 </div>
@@ -54,7 +82,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your computer.</p>
 </li>
 <li>
-<p>Download the latest <code>Lost and Found.jar</code> <a href="https://github.com/CS2103-AY1819S1-W12-1/main/releases">here</a>.</p>
+<p>Download the latest <code>LostBUTFound.jar</code> <a href="https://github.com/CS2103-AY1819S1-W12-1/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Lost and Found app.</p>
@@ -97,6 +125,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>LostBUTFound have many features to help administrators, and the subsequent section provides a step-by-step guide of all the commands LostBUTFound can offer to you.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -123,26 +154,102 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
+<p>Description: Opens the user guide in a new window.</p>
+</div>
+<div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-articles-code-list-code"><a class="link" href="#listing-all-articles-code-list-code">3.2. Listing all articles : <code>list</code></a></h3>
+<h3 id="managing-articles"><a class="link" href="#managing-articles">3.2. Managing articles</a></h3>
 <div class="paragraph">
-<p>Shows a list of all articles in the app.<br>
-Format: <code>list</code></p>
+<p>This section will detail commands that are used to managed article entries in LostBUTFound.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-article-code-edit-code"><a class="link" href="#editing-an-article-code-edit-code">3.3. Editing an article : <code>edit</code></a></h3>
+<div class="sect3">
+<h4 id="adding-an-article-code-add-code"><a class="link" href="#adding-an-article-code-add-code">3.2.1. Adding an article : <code>add</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing article in the article list<br>
-Format <code>edit INDEX [n/NAME] [t/TAG]&#8230;&#8203;</code></p>
+<p>Description: Add a new article to LostBUTFound.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add n/NAME d/DESCRIPTION f/FINDER p/PHONE e/EMAIL [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the article at the specific INDEX. The index refers to the index number shown in the displayed article list. The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
+<p>Articles added are in an unresolved state.</p>
+</li>
+<li>
+<p>An article can have any number of tags (including 0)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/Wallet d/Empty Wallet found in COM1 f/John Doe p/98765432 e/johnd@example.com</code></p>
+</li>
+<li>
+<p><code>add n/Nike Bag d/Found at YIH f/Betsy Crowe t/blue e/betsycrowe@example.com p/1234567</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resolving-an-article-code-resolve-code"><a class="link" href="#resolving-an-article-code-resolve-code">3.2.2. Resolving an article: <code>resolve</code></a></h4>
+<div class="paragraph">
+<p>Description: Resolves the specified article from LostBUTFound.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>resolve INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resolves the article at the specified INDEX</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed article list.</p>
+</li>
+<li>
+<p>The index must be a positive number 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>resolve 2</code> resolves the second article in the list</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-articles-code-list-code"><a class="link" href="#listing-all-articles-code-list-code">3.2.3. Listing all articles : <code>list</code></a></h4>
+<div class="paragraph">
+<p>Description: Shows a list of all unresolved articles in LostBUTFound. Resolved articles will not appear in the list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-article-code-edit-code"><a class="link" href="#editing-an-article-code-edit-code">3.2.4. Editing an article : <code>edit</code></a></h4>
+<div class="paragraph">
+<p>Description: Edits an unresolved article from LostBUTFound. Resolved articles cannot be edited.</p>
+</div>
+<div class="paragraph">
+<p>Format <code>edit INDEX [n/NAME] [d/DESCRIPTION] [f/FINDER] [p/PHONE] [e/EMAIL] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the article at the specific INDEX. The index refers to the index number shown in the displayed list. The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -166,50 +273,13 @@ Format <code>edit INDEX [n/NAME] [t/TAG]&#8230;&#8203;</code></p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="3-5-locating-articles-by-keywords-code-find-code"><a class="link" href="#3-5-locating-articles-by-keywords-code-find-code">3.4. 3.5 Locating articles by keywords: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-an-article-code-delete-code"><a class="link" href="#deleting-an-article-code-delete-code">3.2.5. Deleting an article: <code>delete</code></a></h4>
 <div class="paragraph">
-<p>Finds articles with the keyword in all fields<br>
-format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case sensitive e.g. wallet will NOT match Wallet.</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. Overpriced iPhone will match iPhone Overpriced.</p>
-</li>
-<li>
-<p>All fields will be searched.</p>
-</li>
-<li>
-<p>Only full words will be matched. e.g. Phone will not match iPhone.</p>
-</li>
-<li>
-<p>Person matching at least one keyword will be returned, e.g. Overpriced iPhone will return Cheap iPhone, Overpriced Phone</p>
-</li>
-</ul>
+<p>Description: Deletes the specified article from LostBUTFound. Both resolved and unresolved articles can be deleted.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find Jacket</code> returns Jacket and Torn Jacket</p>
-</li>
-<li>
-<p><code>find wallet blue big-sized</code> returns any articles having field wallet, blue, or big-sized</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-an-article-code-delete-code"><a class="link" href="#deleting-an-article-code-delete-code">3.5. Deleting an article: <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified article from the article list.<br>
-Format: <code>delete INDEX</code></p>
+<p>Format: <code>delete INDEX</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -235,11 +305,13 @@ Format: <code>delete INDEX</code></p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="selecting-an-article-code-select-code"><a class="link" href="#selecting-an-article-code-select-code">3.6. Selecting an article: <code>select</code></a></h3>
+<div class="sect3">
+<h4 id="selecting-an-article-code-select-code"><a class="link" href="#selecting-an-article-code-select-code">3.2.6. Selecting an article: <code>select</code></a></h4>
 <div class="paragraph">
-<p>Selects the article identified by the index number used in the displayed articles.<br>
-Format: <code>select INDEX</code></p>
+<p>Description: Selects the article identified by the index number from LostBUTFound.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>select INDEX</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -265,66 +337,229 @@ Format: <code>select INDEX</code></p>
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="resolve-claimed-articles-code-resolve-code"><a class="link" href="#resolve-claimed-articles-code-resolve-code">3.7. Resolve claimed articles: <code>resolve</code></a></h3>
+<h3 id="finding-articles"><a class="link" href="#finding-articles">3.3. Finding articles</a></h3>
 <div class="paragraph">
-<p>Mark an article as resolved and remove it from active list.<br>
-Format: <code>resolve INDEX</code></p>
+<p>This section will detail commands that are used to find article entries using various parameters in LostBUTFound. The list shown in the interface will only show matching article entries after executing the command.</p>
+</div>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-name-code-find-n-code"><a class="link" href="#finding-unresolved-articles-by-name-code-find-n-code">3.3.1. Finding unresolved articles by name: <code>find-n</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds unresolved articles whose name contains all of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-n KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Resolve the article at the specified index</p>
+<p>The search is case insensitive e.g. <code>wallet</code> will match <code>Wallet</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed article list.</p>
+<p>The order of the keywords does not matter. e.g. <code>iPhone XS</code> will match <code>XS iPhone</code>.</p>
 </li>
 <li>
-<p>The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
+<p>The name field of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Unresolved articles matching all the keyword in the name field will be returned (AND operation), e.g. <code>iPhone XS</code> will not return <code>Cheap iPhone</code>, <code>iPhone</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find-n Jacket</code> returns unresolved article entries with name <code>Jacket</code> and <code>Torn Jacket</code>.</p>
+</li>
+<li>
+<p><code>find-n wallet blue</code> returns unresolved article entries with names <code>wallet blue</code> and <code>big blue wallet</code>.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands: <code>history</code></a></h3>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-description-code-find-d-code"><a class="link" href="#finding-unresolved-articles-by-description-code-find-d-code">3.3.2. Finding unresolved articles by description: <code>find-d</code></a></h4>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
+<p>Description: Finds unresolved articles whose description contains all of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-d KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
+</li>
+<li>
+<p>The description field of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Unresolved articles matching all the keyword in the description field will be returned (AND operation), e.g. <code>Central library</code> will not return <code>Science library</code>, <code>library</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find-d Jacket</code> returns unresolved article entries with description <code>Jacket</code> and <code>Torn Jacket</code>.</p>
+</li>
+<li>
+<p><code>find-d central library</code> returns unresolved article entries with description <code>near Central library</code>, <code>Central library toilet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-keyword-code-findall-code"><a class="link" href="#finding-unresolved-articles-by-keyword-code-findall-code">3.3.3. Finding unresolved articles by keyword: <code>findall</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds unresolved articles which contains any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>findall KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
+</li>
+<li>
+<p>All fields of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Unresolved articles matching at least one of the keyword will be returned (OR operation), e.g. <code>Central library</code> will return <code>Science library</code>, <code>library toilet</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findall Jacket</code> returns unresolved article entries which have fields having keywords <code>Jacket</code>.</p>
+</li>
+<li>
+<p><code>findall Tom wallet</code> returns unresolved article entries which have fields having keywords <code>Tom</code>, <code>Wallet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-resolved-articles-by-keyword-code-findresolved-code"><a class="link" href="#finding-resolved-articles-by-keyword-code-findresolved-code">3.3.4. Finding resolved articles by keyword: <code>findresolved</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds resolved articles which contains any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>findresolved [KEYWORD] [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of resolved articles will be returned if no keywords are entered.</p>
+</li>
+<li>
+<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
+</li>
+<li>
+<p>All fields of resolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Resolved articles matching at the keyword will be returned (OR operation), e.g. <code>Central library</code> will return <code>Science library</code>, <code>library toilet</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findresolved</code> returns the list of resolved article entries.</p>
+</li>
+<li>
+<p><code>findresolved Jacket</code> returns resolved article entries which have fields having keywords <code>Jacket</code>.</p>
+</li>
+<li>
+<p><code>findresolved Tom wallet</code> returns resolved article entries which have fields having keywords <code>Tom</code>, <code>Wallet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-commands"><a class="link" href="#miscellaneous-commands">3.4. Miscellaneous Commands</a></h3>
+<div class="paragraph">
+<p>This section will detail other commands that facilitate use in LostBUTFound.</p>
+</div>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.4.1. Listing entered commands: <code>history</code></a></h4>
+<div class="paragraph">
+<p>Description: Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command: <code>undo</code></a></h3>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.4.2. Undoing previous command: <code>undo</code></a></h4>
 <div class="paragraph">
-<p>Restores the app to the state before the previous undoable command was executed.<br>
+<p>Description: Restores the app to the state before the previous undoable command was executed.<br>
 Format: <code>undo</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="redoing-previous-command-code-redo-code"><a class="link" href="#redoing-previous-command-code-redo-code">3.10. Redoing previous command: <code>redo</code></a></h3>
+<div class="sect3">
+<h4 id="redoing-previous-command-code-redo-code"><a class="link" href="#redoing-previous-command-code-redo-code">3.4.3. Redoing previous command: <code>redo</code></a></h4>
 <div class="paragraph">
-<p>Reverses the undo command.<br>
+<p>Description: Reverses the undo command.<br>
 Format: <code>redo</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries: <code>clear</code></a></h3>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.4.4. Clearing all entries: <code>clear</code></a></h4>
 <div class="paragraph">
-<p>Clears all article entries.<br>
+<p>Description: Clears all article entries.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program: <code>exit</code></a></h3>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.4.5. Exiting the program: <code>exit</code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
+<p>Description: Exits LostBUTFound.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.4.6. Saving the data</a></h4>
 <div class="paragraph">
-<p>Lost and Found data is saved in the hard disk automatically after any command that changes the data.<br>
+<p>Description: Data in LostBUTFound is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
+</div>
 </div>
 </div>
 </div>
@@ -384,4 +619,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 06:01:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 15:26:42 UTC</div></div></div></body></html>
