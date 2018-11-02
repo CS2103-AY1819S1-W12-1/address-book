@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Lim Yu Xi - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Lim Yu Xi - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-lost-and-found"><a class="link" href="#project-lost-and-found">PROJECT: Lost and Found</a></h2>
+<h2 id="project-lostbutfound"><a class="link" href="#project-lostbutfound">PROJECT: LostBUTFound</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,13 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lost and Found is a desktop application used for managing lost and found articles.</p>
+<p>LostBUTFound is a desktop application used for managing lost and found articles. Users will be able to manage the articles and view important information about them.</p>
+</div>
+<div class="paragraph">
+<p>LostBUTFound has a graphical user interface built with JavaFX but most of the user interactions are done using command line interface. It is written in Java and has about 10 kLoC.</p>
+</div>
+<div class="paragraph">
+<p>This portfolio summarizes my contributions for the development of LostBUTFound. It showcases the software engineering knowledge and that I have applied throughout the project.</p>
 </div>
 </div>
 </div>
@@ -20,106 +26,48 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to resolve articles</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It allows the user to resolve articles once it have been claimed by the owner. Resolved articles would still be stored for logging purposes and can be deleted using the <code>delete</code> command, but they cannot be edited. Resolved articles would also not appear in the list unless the <code>findresolved</code> command is executed.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Justification: This feature helps users keep track of both resolved and unresolved articles.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added <strong>the ability to find articles based on specific fields</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to search for articles depending on different fields and parameters.</p>
+</li>
+<li>
+<p>Justification: This features helps users find relevant articles quickly and easily.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added <strong>finder, owner, and isResolved attributes to Article</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to keep track of the person who found and claimed the article, and whether the article have been resolved.</p>
+</li>
+<li>
+<p>Justification: This features allows LostBUTFound to create a personalised experience for the user. Each article entry should contain all necessary information about the article.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
 </li>
-<li>
-<p><strong>Other contributions</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
 </ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +84,214 @@
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="resolving-an-article-code-resolve-code"><a class="link" href="#resolving-an-article-code-resolve-code">Resolving an article: <code>resolve</code></a></h4>
+<div class="paragraph">
+<p>Description: Resolves the specified article from LostBUTFound.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>resolve INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resolves the article at the specified INDEX</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed article list.</p>
+</li>
+<li>
+<p>The index must be a positive number 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>resolve 2</code> resolves the second article in the list</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-articles"><a class="link" href="#finding-articles">Finding articles</a></h3>
+<div class="paragraph">
+<p>This section will detail commands that are used to find article entries using various parameters in LostBUTFound. The list shown in the interface will only show matching article entries after executing the command.</p>
+</div>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-name-code-find-n-code"><a class="link" href="#finding-unresolved-articles-by-name-code-find-n-code">Finding unresolved articles by name: <code>find-n</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds unresolved articles whose name contains all of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-n KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive e.g. <code>wallet</code> will match <code>Wallet</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>iPhone XS</code> will match <code>XS iPhone</code>.</p>
+</li>
+<li>
+<p>The name field of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Unresolved articles matching all the keyword in the name field will be returned (AND operation), e.g. <code>iPhone XS</code> will not return <code>Cheap iPhone</code>, <code>iPhone</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find-n Jacket</code> returns unresolved article entries with name <code>Jacket</code> and <code>Torn Jacket</code>.</p>
+</li>
+<li>
+<p><code>find-n wallet blue</code> returns unresolved article entries with names <code>wallet blue</code> and <code>big blue wallet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-description-code-find-d-code"><a class="link" href="#finding-unresolved-articles-by-description-code-find-d-code">Finding unresolved articles by description: <code>find-d</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds unresolved articles whose description contains all of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-d KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
+</li>
+<li>
+<p>The description field of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Unresolved articles matching all the keyword in the description field will be returned (AND operation), e.g. <code>Central library</code> will not return <code>Science library</code>, <code>library</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find-d Jacket</code> returns unresolved article entries with description <code>Jacket</code> and <code>Torn Jacket</code>.</p>
+</li>
+<li>
+<p><code>find-d central library</code> returns unresolved article entries with description <code>near Central library</code>, <code>Central library toilet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-keyword-code-findall-code"><a class="link" href="#finding-unresolved-articles-by-keyword-code-findall-code">Finding unresolved articles by keyword: <code>findall</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds unresolved articles which contains any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>findall KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
+</li>
+<li>
+<p>All fields of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Unresolved articles matching at least one of the keyword will be returned (OR operation), e.g. <code>Central library</code> will return <code>Science library</code>, <code>library toilet</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findall Jacket</code> returns unresolved article entries which have fields having keywords <code>Jacket</code>.</p>
+</li>
+<li>
+<p><code>findall Tom wallet</code> returns unresolved article entries which have fields having keywords <code>Tom</code>, <code>Wallet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-resolved-articles-by-keyword-code-findresolved-code"><a class="link" href="#finding-resolved-articles-by-keyword-code-findresolved-code">Finding resolved articles by keyword: <code>findresolved</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds resolved articles which contains any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>findresolved [KEYWORD] [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of resolved articles will be returned if no keywords are entered.</p>
+</li>
+<li>
+<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
+</li>
+<li>
+<p>All fields of resolved articles will be searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+<li>
+<p>Resolved articles matching at the keyword will be returned (OR operation), e.g. <code>Central library</code> will return <code>Science library</code>, <code>library toilet</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findresolved</code> returns the list of resolved article entries.</p>
+</li>
+<li>
+<p><code>findresolved Jacket</code> returns resolved article entries which have fields having keywords <code>Jacket</code>.</p>
+</li>
+<li>
+<p><code>findresolved Tom wallet</code> returns resolved article entries which have fields having keywords <code>Tom</code>, <code>Wallet</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,216 +307,464 @@
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedArticleList</code>.
-It extends <code>ArticleList</code> with an undo/redo history, stored internally as an <code>articleListStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p><strong>Target user profile</strong>: an administrator who</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedArticleList#commit()</code>&#8201;&#8212;&#8201;Saves the current article list state in its history.</p>
+<p>has a need to manage a lot of lost and found articles</p>
 </li>
 <li>
-<p><code>VersionedArticleList#undo()</code>&#8201;&#8212;&#8201;Restores the previous article list state from its history.</p>
+<p>prefer desktop apps over web equivalents</p>
 </li>
 <li>
-<p><code>VersionedArticleList#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone article list state from its history.</p>
+<p>can type fast</p>
+</li>
+<li>
+<p>prefer typing over mouse input</p>
+</li>
+<li>
+<p>is reasonably comfortable using CLI apps</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitArticleList()</code>, <code>Model#undoArticleList()</code> and <code>Model#redoArticleList()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedArticleList</code> will be initialized with the initial article list state, and the <code>currentStatePointer</code> pointing to that single article list state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the article list. The <code>delete</code> command calls <code>Model#commitArticleList()</code>, causing the modified state of the article list after the <code>delete 5</code> command executes to be saved in the <code>articleListStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted article list state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitArticleList()</code>, causing another modified article list state to be saved into the <code>articleListStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitArticleList()</code>, so the article list state will not be saved into the <code>articleListStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoArticleList()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous article list state, and restores the article list to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial article list state, then there are no previous article list states to restore. The <code>undo</code> command uses <code>Model#canUndoArticleList()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoArticleList()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the article list to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>articleListStateList.size() - 1</code>, pointing to the latest article list state, then there are no undone article list states to restore. The <code>redo</code> command uses <code>Model#canRedoArticleList()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the article list, such as <code>list</code>, will usually not call <code>Model#commitArticleList()</code>, <code>Model#undoArticleList()</code> or <code>Model#redoArticleList()</code>. Thus, the <code>articleListStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitArticleList()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>articleListStateList</code>, all article list states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire article list.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of article list states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedArticleList</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
+<p><strong>Value proposition</strong>: make it faster and easier to manage lost and found articles compared to GUI apps.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 23%;">
+<col style="width: 25%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refer to instructions when I forget how to use the commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a lost article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add an article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make a new entry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete an article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove articles that are no longer relevant</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit an article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change details of an article that I made by mistake</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set the photo of the article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify the article easily by sight</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Differentiate resolved and unresolved articles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify different types of articles easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detailed administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show the number of listings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of the number of entries</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detailed administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View the details of a selected article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See the specific details of the article</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find articles using the name of the article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find the article easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find articles with matching keywords in their description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find the articles easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolve articles that have been claimed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separate resolved and unresolved articles</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim dispute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View resolved articles that have been previously claimed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check the article&#8217;s claim of ownership</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo the last n actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cancel actions I did by mistake</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo the last n actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cancel undo actions that I did by mistake</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 06:01:48 UTC</div></div></div></body></html>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(For all use cases below, the <strong>System</strong> is the <code>LostBUTFound</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+</div>
+<h3 id="use-cases-add-article" class="discrete">Use Cases: Add article</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add article</p>
+</li>
+<li>
+<p>System adds the article</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The command format is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. System sends error message and command instruction to user.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-delete-unresolved-article" class="discrete">Use Cases: Delete unresolved article</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list article</p>
+</li>
+<li>
+<p>System shows a list of unresolved articles</p>
+</li>
+<li>
+<p>User requests to delete a specific article from the list</p>
+</li>
+<li>
+<p>System deletes the article</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>2b. The given index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-delete-resolved-article" class="discrete">Use Cases: Delete resolved article</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find list of resolved article</p>
+</li>
+<li>
+<p>System shows a list of resolved articles</p>
+</li>
+<li>
+<p>User requests to delete a specific article from the list</p>
+</li>
+<li>
+<p>System deletes the article</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3b. The given index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-find-unresolved-article-by-name" class="discrete">Use Cases: Find unresolved article by name</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find articles using keywords</p>
+</li>
+<li>
+<p>System shows a list of unresolved articles matching the given keywords</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a. Invalid command format</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4aa. Systems sends error message to user
+Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-find-resolved-article-by-keyword" class="discrete">Use Cases: Find resolved article by keyword</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find list of resolved article using keywords</p>
+</li>
+<li>
+<p>System shows a list of resolved articles matching the keywords</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5a. Invalid command format</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5aa. Systems sends error message to user
+Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-resolve-article" class="discrete">Use Cases: Resolve article</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list article</p>
+</li>
+<li>
+<p>System shows a list of unresolved articles</p>
+</li>
+<li>
+<p>User requests to resolve a specific article from the list</p>
+</li>
+<li>
+<p>System sets the state of the article to resolved</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>6a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>6b. The given index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-edit-description-of-a-unresolved-article" class="discrete">Use Cases: Edit description of a unresolved article</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list article</p>
+</li>
+<li>
+<p>System shows a list of unresolved articles</p>
+</li>
+<li>
+<p>User requests to set the description of a specific article from the list</p>
+</li>
+<li>
+<p>System changes the description of the article</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>7a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>7b. The given index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
+</li>
+<li>
+<p>Should be able to hold up to 1000 Articles without a noticeable sluggishness in performance for typical usage.</p>
+</li>
+<li>
+<p>Should take less than 3 seconds to respond to each command on any <a href="#mainstream-os">mainstream OS</a>.</p>
+</li>
+<li>
+<p>Should receive feedback after executing commands.</p>
+</li>
+<li>
+<p>Should have correct error handling for unexpected behavior to prevent the application from crashing.</p>
+</li>
+<li>
+<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+<li>
+<p>The commands and the function it provides should be clear to the user.</p>
+</li>
+<li>
+<p>The user interface’s font and size should be legible by user.</p>
+</li>
+<li>
+<p>Should be able to retain information in event of crash or force shutdown.</p>
+</li>
+</ol>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 06:21:46 UTC</div></div></div></body></html>

@@ -77,8 +77,9 @@
 <li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#adding-an-article">H.2. Adding an article</a></li>
+<li><a href="#deleting-a-person">H.3. Deleting a person</a></li>
+<li><a href="#saving-data">H.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -1966,7 +1967,7 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix B: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
+<p><strong>Target user profile</strong>: an administrator who</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2016,117 +2017,87 @@ for <code>RemarkCommandParser</code>.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refer to instructions when I forget how to use the commands</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a lost article</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add an article</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Make a new entry</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">delete an article</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remove articles that are no longer needed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove articles that are no longer relevant</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set the description of the article</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identify the article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit an article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change details of an article that I made by mistake</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set the photo of the article</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identify the article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify the article easily by sight</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set the properties of the article</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identify the article</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Differentiate resolved and unresolved articles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identify different types of articles easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set the location the article was lost/found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identify the article</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detailed administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Show the number of listings</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of the number of entries</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detailed administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View the details of a selected article</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">See the specific details of the article</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim request</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Find articles using the name of the article</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Find the article easily</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resolve articles that have been returned</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Categorize resolved articles</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim request</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Find articles with matching keywords in their description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Find the articles easily</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort the article by their names</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Reorganize the listings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolve articles that have been claimed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separate resolved and unresolved articles</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">administrator who received a claim dispute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View resolved articles that have been previously claimed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check the article&#8217;s claim of ownership</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Undo the last n actions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cancel actions I did by mistake</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless administrator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Redo the last n actions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cancel undo actions that I did by mistake</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add / remove multiple tags from an article</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort the articles by the name of the person who lost it</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort the articles by the name of the person who found it</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find articles with specific combination of tag</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -2136,7 +2107,7 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>ArticleList</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>LostBUTFound</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-cases-add-article" class="discrete">Use Cases: Add article</h3>
 <div class="paragraph">
@@ -2175,7 +2146,7 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-cases-delete-article" class="discrete">Use Cases: Delete article</h3>
+<h3 id="use-cases-delete-unresolved-article" class="discrete">Use Cases: Delete unresolved article</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2185,7 +2156,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to list article</p>
 </li>
 <li>
-<p>System shows a list of articles</p>
+<p>System shows a list of unresolved articles</p>
 </li>
 <li>
 <p>User requests to delete a specific article from the list</p>
@@ -2217,17 +2188,23 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-cases-find-article" class="discrete">Use Cases: Find article</h3>
+<h3 id="use-cases-delete-resolved-article" class="discrete">Use Cases: Delete resolved article</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to find articles</p>
+<p>User requests to find list of resolved article</p>
 </li>
 <li>
-<p>System shows a list of articles</p>
+<p>System shows a list of resolved articles</p>
+</li>
+<li>
+<p>User requests to delete a specific article from the list</p>
+</li>
+<li>
+<p>System deletes the article</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2240,11 +2217,82 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. Invalid command format</p>
+<p>3a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3b. The given index is invalid.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-find-unresolved-article-by-name" class="discrete">Use Cases: Find unresolved article by name</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find articles using keywords</p>
+</li>
+<li>
+<p>System shows a list of unresolved articles matching the given keywords</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3aa. Systems sends error message to user
+<p>4a. Invalid command format</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4aa. Systems sends error message to user
+Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-cases-find-resolved-article-by-keyword" class="discrete">Use Cases: Find resolved article by keyword</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find list of resolved article using keywords</p>
+</li>
+<li>
+<p>System shows a list of resolved articles matching the keywords</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5a. Invalid command format</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5aa. Systems sends error message to user
 Use case ends.</p>
 </li>
 </ul>
@@ -2262,13 +2310,13 @@ Use case ends.</p>
 <p>User requests to list article</p>
 </li>
 <li>
-<p>System shows a list of articles</p>
+<p>System shows a list of unresolved articles</p>
 </li>
 <li>
 <p>User requests to resolve a specific article from the list</p>
 </li>
 <li>
-<p>System deletes the article</p>
+<p>System sets the state of the article to resolved</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2281,20 +2329,20 @@ Use case ends.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a. The list is empty</p>
+<p>6a. The list is empty</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>4b. The given index is invalid.</p>
+<p>6b. The given index is invalid.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
 </li>
 </ul>
 </div>
-<h3 id="use-cases-set-description-article" class="discrete">Use Cases: Set description article</h3>
+<h3 id="use-cases-edit-description-of-a-unresolved-article" class="discrete">Use Cases: Edit description of a unresolved article</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2304,7 +2352,7 @@ Use case ends.</p>
 <p>User requests to list article</p>
 </li>
 <li>
-<p>System shows a list of articles</p>
+<p>System shows a list of unresolved articles</p>
 </li>
 <li>
 <p>User requests to set the description of a specific article from the list</p>
@@ -2323,13 +2371,13 @@ Use case ends.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>5a. The list is empty</p>
+<p>7a. The list is empty</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>5b. The given index is invalid.</p>
+<p>7b. The given index is invalid.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2366,6 +2414,9 @@ Use case ends.</p>
 </li>
 <li>
 <p>The user interface’s font and size should be legible by user.</p>
+</li>
+<li>
+<p>Should be able to retain information in event of crash or force shutdown.</p>
 </li>
 </ol>
 </div>
@@ -2477,12 +2528,38 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="adding-an-article"><a class="link" href="#adding-an-article">H.2. Adding an article</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an article to LostBUTFound</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No article in LostBUTFound has the same name and description as the article to be added.</p>
+</li>
+<li>
+<p>Test case: <code>add</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.3. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2514,7 +2591,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">H.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2534,4 +2611,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 06:01:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 06:21:46 UTC</div></div></div></body></html>
