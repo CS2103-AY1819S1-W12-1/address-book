@@ -32,8 +32,9 @@
 <ul class="sectlevel3">
 <li><a href="#finding-unresolved-articles-by-name-code-find-n-code">3.3.1. Finding unresolved articles by name: <code>find-n</code></a></li>
 <li><a href="#finding-unresolved-articles-by-description-code-find-d-code">3.3.2. Finding unresolved articles by description: <code>find-d</code></a></li>
-<li><a href="#finding-unresolved-articles-by-keyword-code-findall-code">3.3.3. Finding unresolved articles by keyword: <code>findall</code></a></li>
-<li><a href="#finding-resolved-articles-by-keyword-code-findresolved-code">3.3.4. Finding resolved articles by keyword: <code>findresolved</code></a></li>
+<li><a href="#finding-unresolved-articles-by-name-code-find-f-code">3.3.3. Finding unresolved articles by name: <code>find-f</code></a></li>
+<li><a href="#finding-unresolved-articles-by-keyword-code-findall-code">3.3.4. Finding unresolved articles by keyword: <code>findall</code></a></li>
+<li><a href="#finding-resolved-articles-by-keyword-code-findresolved-code">3.3.5. Finding resolved articles by keyword: <code>findresolved</code></a></li>
 </ul>
 </li>
 <li><a href="#miscellaneous-commands">3.4. Miscellaneous Commands</a>
@@ -57,10 +58,13 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to <strong>LostBUTFound</strong>! <strong>LostBUTFound</strong> is made for administrators <strong>managing lost and found articles</strong>.</p>
+<p>Welcome to <strong>LostBUTFound</strong>! <strong>LostBUTFound</strong> is a management tool designed to help <strong>administrators manage lost and found articles</strong>.</p>
 </div>
 <div class="paragraph">
-<p>More importantly, it is optimized for those who prefer to work with a Command Line Interface (CLI), while still having the benefits of a Graphical User Interface (GUI).</p>
+<p>Managing lost and found articles can be a frustrating experience, especially when there are a huge amount of articles to keep track of. LostBUTFound streamlines this management process and help you to increase your productivity.</p>
+</div>
+<div class="paragraph">
+<p>More importantly, LostBUTFound is optimized for those who prefer to work with a Command Line Interface (CLI), while still having the benefits of a Graphical User Interface (GUI). Fast typists will find that LostBUTFound can manage lost and found articles faster than traditional GUI applications.</p>
 </div>
 <div class="sect2">
 <h3 id="accessing-the-user-guide"><a class="link" href="#accessing-the-user-guide">1.1. Accessing the user guide</a></h3>
@@ -200,10 +204,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="resolving-an-article-code-resolve-code"><a class="link" href="#resolving-an-article-code-resolve-code">3.2.2. Resolving an article: <code>resolve</code></a></h4>
 <div class="paragraph">
-<p>Description: Resolves the specified article from LostBUTFound.</p>
+<p>Description: Resolves the specified article from LostBUTFound when the owner claims their article.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>resolve INDEX</code></p>
+<p>Format: <code>resolve INDEX o/OWNER</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -218,13 +222,25 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 </ul>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>resolve</code> and <code>delete</code> commands are different. By resolving the article, the article entry would still exist in LostBUTFound for logging purposes in the case of claim disputes.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>resolve 2</code> resolves the second article in the list</p>
+<p><code>resolve 2 o/John</code> resolves the second article in the list when John claims his article.</p>
 </li>
 </ul>
 </div>
@@ -343,10 +359,35 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="paragraph">
 <p>This section will detail commands that are used to find article entries using various parameters in LostBUTFound. The list shown in the interface will only show matching article entries after executing the command.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The following rules apply to all <code>find</code> commands
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The keyword is case insensitive e.g. <code>wallet</code> will match <code>Wallet</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>iPhone XS</code> will match <code>XS iPhone</code>.</p>
+</li>
+<li>
+<p>Only full words will be matched with the keyword. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
+</li>
+</ul>
+</div>
 <div class="sect3">
 <h4 id="finding-unresolved-articles-by-name-code-find-n-code"><a class="link" href="#finding-unresolved-articles-by-name-code-find-n-code">3.3.1. Finding unresolved articles by name: <code>find-n</code></a></h4>
 <div class="paragraph">
-<p>Description: Finds unresolved articles whose name contains all of the given keywords.</p>
+<p>Description: Finds unresolved articles whose name contains <strong>all</strong> of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find-n KEYWORD [MORE_KEYWORDS]</code></p>
@@ -354,19 +395,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive e.g. <code>wallet</code> will match <code>Wallet</code>.</p>
+<p>Only the name field of unresolved articles will be searched.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>iPhone XS</code> will match <code>XS iPhone</code>.</p>
-</li>
-<li>
-<p>The name field of unresolved articles will be searched.</p>
-</li>
-<li>
-<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
-</li>
-<li>
-<p>Unresolved articles matching all the keyword in the name field will be returned (AND operation), e.g. <code>iPhone XS</code> will not return <code>Cheap iPhone</code>, <code>iPhone</code>.</p>
+<p>Unresolved articles matching all the keyword in the name field will be returned (AND operation).</p>
 </li>
 </ul>
 </div>
@@ -387,7 +419,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="finding-unresolved-articles-by-description-code-find-d-code"><a class="link" href="#finding-unresolved-articles-by-description-code-find-d-code">3.3.2. Finding unresolved articles by description: <code>find-d</code></a></h4>
 <div class="paragraph">
-<p>Description: Finds unresolved articles whose description contains all of the given keywords.</p>
+<p>Description: Finds unresolved articles whose description contains <strong>all</strong> of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>find-d KEYWORD [MORE_KEYWORDS]</code></p>
@@ -395,19 +427,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
+<p>Only the description field of unresolved articles will be searched.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
-</li>
-<li>
-<p>The description field of unresolved articles will be searched.</p>
-</li>
-<li>
-<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
-</li>
-<li>
-<p>Unresolved articles matching all the keyword in the description field will be returned (AND operation), e.g. <code>Central library</code> will not return <code>Science library</code>, <code>library</code>.</p>
+<p>Unresolved articles matching all the keyword in the description field will be returned (AND operation).</p>
 </li>
 </ul>
 </div>
@@ -426,9 +449,41 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-unresolved-articles-by-keyword-code-findall-code"><a class="link" href="#finding-unresolved-articles-by-keyword-code-findall-code">3.3.3. Finding unresolved articles by keyword: <code>findall</code></a></h4>
+<h4 id="finding-unresolved-articles-by-name-code-find-f-code"><a class="link" href="#finding-unresolved-articles-by-name-code-find-f-code">3.3.3. Finding unresolved articles by name: <code>find-f</code></a></h4>
 <div class="paragraph">
-<p>Description: Finds unresolved articles which contains any of the given keywords.</p>
+<p>Description: Finds unresolved articles whose finder&#8217;s name contains <strong>all</strong> of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-f KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only the finder field of unresolved articles will be searched.</p>
+</li>
+<li>
+<p>Unresolved articles matching all the keyword in the finder field will be returned (AND operation).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find-f John</code> returns unresolved article entries with finder <code>John Doe</code> and <code>John Ham</code>.</p>
+</li>
+<li>
+<p><code>find-f John Doe</code> returns unresolved article entries with finder <code>John Doe</code> and <code>John Hamilton Doe</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-unresolved-articles-by-keyword-code-findall-code"><a class="link" href="#finding-unresolved-articles-by-keyword-code-findall-code">3.3.4. Finding unresolved articles by keyword: <code>findall</code></a></h4>
+<div class="paragraph">
+<p>Description: Finds unresolved articles which contains <strong>any</strong> of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>findall KEYWORD [MORE_KEYWORDS]</code></p>
@@ -436,19 +491,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
-</li>
-<li>
 <p>All fields of unresolved articles will be searched.</p>
 </li>
 <li>
-<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
-</li>
-<li>
-<p>Unresolved articles matching at least one of the keyword will be returned (OR operation), e.g. <code>Central library</code> will return <code>Science library</code>, <code>library toilet</code>.</p>
+<p>Unresolved articles matching at least one of the keyword will be returned (OR operation).</p>
 </li>
 </ul>
 </div>
@@ -467,9 +513,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-resolved-articles-by-keyword-code-findresolved-code"><a class="link" href="#finding-resolved-articles-by-keyword-code-findresolved-code">3.3.4. Finding resolved articles by keyword: <code>findresolved</code></a></h4>
+<h4 id="finding-resolved-articles-by-keyword-code-findresolved-code"><a class="link" href="#finding-resolved-articles-by-keyword-code-findresolved-code">3.3.5. Finding resolved articles by keyword: <code>findresolved</code></a></h4>
 <div class="paragraph">
-<p>Description: Finds resolved articles which contains any of the given keywords.</p>
+<p>Description: Finds resolved articles which contains <strong>any</strong> of the keywords if given.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>findresolved [KEYWORD] [MORE_KEYWORDS]</code></p>
@@ -480,19 +526,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>A list of resolved articles will be returned if no keywords are entered.</p>
 </li>
 <li>
-<p>The search is case insensitive e.g. <code>library</code> will match <code>Library</code>.</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>central library</code> will match <code>library central</code>.</p>
-</li>
-<li>
 <p>All fields of resolved articles will be searched.</p>
 </li>
 <li>
-<p>Only full words will be matched. e.g. <code>Phone</code> will not match <code>iPhone</code>.</p>
-</li>
-<li>
-<p>Resolved articles matching at the keyword will be returned (OR operation), e.g. <code>Central library</code> will return <code>Science library</code>, <code>library toilet</code>.</p>
+<p>If Resolved articles matching the keyword will be returned (OR operation).</p>
 </li>
 </ul>
 </div>
@@ -502,7 +539,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>findresolved</code> returns the list of resolved article entries.</p>
+<p><code>findresolved</code> returns all resolved article entries.</p>
 </li>
 <li>
 <p><code>findresolved Jacket</code> returns resolved article entries which have fields having keywords <code>Jacket</code>.</p>
@@ -619,4 +656,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 06:04:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 16:42:26 UTC</div></div></div></body></html>

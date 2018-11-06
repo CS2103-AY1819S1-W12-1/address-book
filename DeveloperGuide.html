@@ -30,9 +30,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#find-feature">3.2. Find feature</a></li>
+<li><a href="#resolve-feature">3.3. Resolve feature</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -78,7 +79,7 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
 <li><a href="#adding-an-article">H.2. Adding an article</a></li>
-<li><a href="#deleting-a-person">H.3. Deleting a person</a></li>
+<li><a href="#deleting-a-article">H.3. Deleting a article</a></li>
 <li><a href="#saving-data">H.4. Saving data</a></li>
 </ul>
 </li>
@@ -501,7 +502,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person) and/or raise events.</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a article) and/or raise events.</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -639,7 +640,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the article list. The <code>delete</code> command calls <code>Model#commitArticleList()</code>, causing the modified state of the article list after the <code>delete 5</code> command executes to be saved in the <code>articleListStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted article list state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th article in the article list. The <code>delete</code> command calls <code>Model#commitArticleList()</code>, causing the modified state of the article list after the <code>delete 5</code> command executes to be saved in the <code>articleListStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted article list state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -647,7 +648,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitArticleList()</code>, causing another modified article list state to be saved into the <code>articleListStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/Wallet &#8230;&#8203;</code> to add a new article. The <code>add</code> command also calls <code>Model#commitArticleList()</code>, causing another modified article list state to be saved into the <code>articleListStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -667,7 +668,7 @@ If a command fails its execution, it will not call <code>Model#commitArticleList
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoArticleList()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous article list state, and restores the article list to that state.</p>
+<p>Step 4. The user now decides that adding the article was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoArticleList()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous article list state, and restores the article list to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -718,7 +719,7 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitArticleList()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>articleListStateList</code>, all article list states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitArticleList()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>articleListStateList</code>, all article list states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/Wallet &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -758,7 +759,7 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the article being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -805,20 +806,150 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="find-feature"><a class="link" href="#find-feature">3.2. Find feature</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The <code>find-(FIELD)</code> command allows users to find unresolved articles by <code>name</code>, <code>description</code> or <code>finder</code> with keywords. The command finds all article whose fields contain all of the given keywords.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The below diagram illustrates the interaction between the <code>Logic</code> and <code>Model</code> components in finding an article with the specified keyword. In this example, <code>find-n wallet</code> command was executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>find-(FIELD)</code> command input is passed into an ArticleListParser object. The ArticleListParser reads the command word <code>find</code> and creates a <code>FindCommandParser</code> object that further parses the command input and creates a <code>FindCommand</code>. The <code>FindCommand</code> filters the the article list based on the keywords and updates the <code>Model</code> component on changes in the filtered article list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-keyword-matching"><a class="link" href="#aspect-keyword-matching">Aspect: Keyword matching</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Match all of the keywords</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Find command would be more targeted and precise.</p>
+</li>
+<li>
+<p>Cons: User cannot find multiple articles using multiple keywords at the same time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Match any of the keywords</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can find multiple articles using multiple keywords at the same time.</p>
+</li>
+<li>
+<p>Cons: Harder for user to accurately find a specific article if there are multiple articles with the same keywords.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Approximate matching</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can easily find articles even if they are unsure of the keywords.</p>
+</li>
+<li>
+<p>Cons: Harder to implement the find feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.3. Resolve feature</a></h3>
+<div class="paragraph">
+<p>The <code>resolve</code> command allows users to resolve articles when they are claimed bu the owner.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The below diagram illustrates the interaction between the <code>Logic</code> and <code>Model</code> components in resolving an article.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ResolveSequenceDiagram.png" alt="ResolveSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>resolve</code> command input is passed into an ArticleListParser object. The ArticleListParser reads the command word <code>resolve</code> and creates a <code>ResolveCommandParser</code> object that further parses the command input and creates a <code>ResolveCommand</code>. The <code>ResolveCommand</code> then updates the article with the new information and updates the <code>Model</code> component on changes in the filtered unresolved article list.</p>
+</div>
+<div class="paragraph">
+<p>In the ResolveCommand, a new <code>Article</code> object is created directly with the following information:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Article editedArticle = new Article(articleToEdit.getName(), articleToEdit.getPhone(), articleToEdit.getEmail(), articleToEdit.getDescription(), articleToEdit.getFinder(), owner, SET_ISRESOLVED, articleToEdit.getTags());</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unlike the <code>edit</code> command where there can be multiple fields edited, only 2 fields - <code>owner</code> and <code>isResolved</code> is changed for the <code>resolve</code> feature. Thus, once the <code>owner</code> field is parsed and accepted, a new <code>Article</code> object can be created. The Article would have the same data as the target Article, except for the new <code>owner</code> and <code>isResolved</code> field.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-changing-the-owner-and-isresolved-field"><a class="link" href="#aspect-changing-the-owner-and-isresolved-field">Aspect: changing the owner and isResolved field</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new <code>Article</code> object</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy implementation without affecting other functions.</p>
+</li>
+<li>
+<p>Cons: Parsing and exception handling would have to be added to the feature.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Call the <code>EditCommand</code> method</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Use of existing function to change the relevant fields.</p>
+</li>
+<li>
+<p>Cons: Increase coupling of project.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -849,7 +980,7 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1287,7 +1418,7 @@ Do take a look at <a href="#Design-Logic">Section 2.3, &#8220;Logic component&#8
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a shorthand equivalent alias for each of the individual commands. For example, besides typing <code>clear</code>, the user can also type <code>c</code> to remove all persons in the list.</p>
+<p>Add a shorthand equivalent alias for each of the individual commands. For example, besides typing <code>clear</code>, the user can also type <code>c</code> to remove all articles in the list.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -1366,7 +1497,7 @@ Do take a look at <a href="#Design-Model">Section 2.4, &#8220;Model component&#8
 <p>Think about how you can use SLAP to design the method. Where should we place the main logic of deleting tags?</p>
 </li>
 <li>
-<p>Find out which of the existing API methods in  <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ArticleList.java"><code>ArticleList</code></a> and <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Article.java"><code>Article</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ArticleList.java"><code>ArticleList</code></a> allows you to update a person, and <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Article.java"><code>Article</code></a> allows you to update the tags.</p>
+<p>Find out which of the existing API methods in  <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ArticleList.java"><code>ArticleList</code></a> and <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Article.java"><code>Article</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ArticleList.java"><code>ArticleList</code></a> allows you to update a article, and <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Article.java"><code>Article</code></a> allows you to update the tags.</p>
 </li>
 </ul>
 </div>
@@ -1376,7 +1507,7 @@ Do take a look at <a href="#Design-Model">Section 2.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ArticleList.java"><code>ArticleList</code></a>. Loop through each person, and remove the <code>tag</code> from each person.</p>
+<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ArticleList.java"><code>ArticleList</code></a>. Loop through each article, and remove the <code>tag</code> from each article.</p>
 </li>
 <li>
 <p>Add a new API method <code>deleteTag(Tag)</code> in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/ModelManager.java"><code>ModelManager</code></a> should call <code>ArticleList#removeTag(Tag)</code>.</p>
@@ -1399,7 +1530,7 @@ Do take a look at <a href="#Design-Model">Section 2.4, &#8220;Model component&#8
 </div>
 <h4 id="code-ui-code-component" class="discrete"><code>Ui</code> component</h4>
 <div class="paragraph">
-<p><strong>Scenario:</strong> You are in charge of <code>ui</code>. During a beta testing session, your team is observing how the users use your article list application. You realize that one of the users occasionally tries to delete non-existent tags from a contact, because the tags all look the same visually, and the user got confused. Another user made a typing mistake in his command, but did not realize he had done so because the error message wasn&#8217;t prominent enough. A third user keeps scrolling down the list, because he keeps forgetting the index of the last person in the list. Your job is to implement improvements to the UI to solve all these problems.</p>
+<p><strong>Scenario:</strong> You are in charge of <code>ui</code>. During a beta testing session, your team is observing how the users use your article list application. You realize that one of the users occasionally tries to delete non-existent tags from a contact, because the tags all look the same visually, and the user got confused. Another user made a typing mistake in his command, but did not realize he had done so because the error message wasn&#8217;t prominent enough. A third user keeps scrolling down the list, because he keeps forgetting the index of the last article in the list. Your job is to implement improvements to the UI to solve all these problems.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1416,7 +1547,7 @@ Do take a look at <a href="#Design-Ui">Section 2.2, &#8220;UI component&#8221;</
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Use different colors for different tags inside person cards. For example, <code>friends</code> tags can be all in brown, and <code>colleagues</code> tags can be all in yellow.</p>
+<p>Use different colors for different tags inside article cards. For example, <code>friends</code> tags can be all in brown, and <code>colleagues</code> tags can be all in yellow.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -1594,16 +1725,16 @@ Do take a look at <a href="#Design-Ui">Section 2.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the constructor of <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of persons when the application just started.</p>
+<p>Modify the constructor of <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of articles when the application just started.</p>
 </li>
 <li>
-<p>Use <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/ui/StatusBarFooter.java"><code>StatusBarFooter#handleArticleListChangedEvent(ArticleListChangedEvent)</code></a> to update the number of persons whenever there are new changes to the articlelist.</p>
+<p>Use <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/ui/StatusBarFooter.java"><code>StatusBarFooter#handleArticleListChangedEvent(ArticleListChangedEvent)</code></a> to update the number of articles whenever there are new changes to the articlelist.</p>
 </li>
 <li>
 <p>For tests, modify <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of people status, just like what we did for save location and sync status.</p>
 </li>
 <li>
-<p>For system tests, modify <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/systemtests/ArticleListSystemTest.java"><code>ArticleListSystemTest</code></a> to also verify the new total number of persons status bar.</p>
+<p>For system tests, modify <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/systemtests/ArticleListSystemTest.java"><code>ArticleListSystemTest</code></a> to also verify the new total number of articles status bar.</p>
 </li>
 <li>
 <p>See this <a href="https://github.com/se-edu/articlelist-level4/pull/803">PR</a> for the full solution.</p>
@@ -1684,7 +1815,7 @@ Do take a look at <a href="#Design-Storage">Section 2.5, &#8220;Storage componen
 <div class="sect3">
 <h4 id="description"><a class="link" href="#description">A.2.1. Description</a></h4>
 <div class="paragraph">
-<p>Edits the remark for a person specified in the <code>INDEX</code>.<br>
+<p>Edits the remark for a article specified in the <code>INDEX</code>.<br>
 Format: <code>remark INDEX r/[REMARK]</code></p>
 </div>
 <div class="paragraph">
@@ -1693,12 +1824,12 @@ Format: <code>remark INDEX r/[REMARK]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remark 1 r/Likes to drink coffee.</code><br>
-Edits the remark for the first person to <code>Likes to drink coffee.</code></p>
+<p><code>remark 1 r/Often lost article.</code><br>
+Edits the remark for the first article to <code>Often lost article.</code></p>
 </li>
 <li>
 <p><code>remark 1 r/</code><br>
-Removes the remark for the first person.</p>
+Removes the remark for the first article.</p>
 </li>
 </ul>
 </div>
@@ -1779,7 +1910,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-articlecard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-articlecard-code">[Step 3] Ui: Add a placeholder for remark in <code>ArticleCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/ui/ArticleCard.java"><code>ArticleCard</code></a> s to display a remark for each person later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/ui/ArticleCard.java"><code>ArticleCard</code></a> s to display a remark for each article later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1808,7 +1939,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Article.java"><code>Article</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>We have to properly encapsulate the remark in our <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Article.java"><code>Article</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1816,7 +1947,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Description.java"><code>Description</code></a>, remove the regex and change the names accordingly).</p>
+<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Description.java"><code>Description</code></a>, remove the regex and change the names accordingly).</p>
 </li>
 <li>
 <p>Modify <code>RemarkCommand</code> to now take in a <code>Remark</code> instead of a <code>String</code>.</p>
@@ -1837,7 +1968,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-5-model-modify-code-article-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-article-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Article</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Article.java"><code>Article</code></a>.</p>
+<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Article.java"><code>Article</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -1845,10 +1976,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>getRemark()</code> in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Article.java"><code>Article</code></a>.</p>
+<p>Add <code>getRemark()</code> in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Article.java"><code>Article</code></a>.</p>
 </li>
 <li>
-<p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the person will be created without a remark).</p>
+<p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the article will be created without a remark).</p>
 </li>
 <li>
 <p>Modify <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>articleList.xml</code> so that the application will load the sample data when you launch it.)</p>
@@ -1885,7 +2016,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6b-test-add-withremark-for-code-articlebuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-articlebuilder-code">[Step 6b] Test: Add withRemark() for <code>ArticleBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Article</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/lostandfound/testutil/ArticleBuilder.java"><code>ArticleBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/person/Article.java"><code>Article</code></a>.</p>
+<p>Since <code>Article</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/lostandfound/testutil/ArticleBuilder.java"><code>ArticleBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/lostandfound/model/article/Article.java"><code>Article</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -1893,7 +2024,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/lostandfound/testutil/ArticleBuilder.java"><code>ArticleBuilder</code></a>. This method will create a new <code>Remark</code> for the person that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/lostandfound/testutil/ArticleBuilder.java"><code>ArticleBuilder</code></a>. This method will create a new <code>Remark</code> for the article that it is currently building.</p>
 </li>
 <li>
 <p>Try and use the method on any sample <code>Article</code> in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/test/java/seedu/lostandfound/testutil/TypicalArticles.java"><code>TypicalArticles</code></a>.</p>
@@ -1938,7 +2069,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Replace the logic in <code>RemarkCommand#execute()</code> (that currently just throws an <code>Exception</code>), with the actual logic to modify the remarks of a person.</p>
+<p>Replace the logic in <code>RemarkCommand#execute()</code> (that currently just throws an <code>Exception</code>), with the actual logic to modify the remarks of a article.</p>
 </li>
 </ol>
 </div>
@@ -2546,7 +2677,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No article is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -2559,15 +2690,15 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.3. Deleting a person</a></h3>
+<h3 id="deleting-a-article"><a class="link" href="#deleting-a-article">H.3. Deleting a article</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Deleting a article while all articles are listed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: List all articles using the <code>list</code> command. Multiple articles in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
@@ -2575,7 +2706,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No article is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -2611,4 +2742,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 06:04:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 16:42:26 UTC</div></div></div></body></html>
