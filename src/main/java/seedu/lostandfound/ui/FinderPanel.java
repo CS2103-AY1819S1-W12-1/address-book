@@ -22,15 +22,29 @@ public class FinderPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(getClass());
 
     @FXML
-    private Label finder;
+    private Label name;
+
+    @FXML
+    private Label phone;
+
+    @FXML
+    private Label email;
 
     public FinderPanel() {
         super(FXML);
         registerAsAnEventHandler(this);
     }
 
+    /**
+     * Load finder info from the article onto the panel.
+     * @param article
+     */
     private void loadFinder(Article article) {
-        Platform.runLater(() -> finder.setText(article.getFinder().fullName));
+        Platform.runLater(() -> {
+            name.setText(article.getFinder().fullName);
+            phone.setText(article.getPhone().value);
+            email.setText(article.getEmail().value);
+        });
     }
 
     @Subscribe

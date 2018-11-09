@@ -15,10 +15,10 @@
 
 <AnchorPane fx:id="detailsPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane hgap="10" vgap="10"
-            AnchorPane.topAnchor="5" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5">
+            AnchorPane.topAnchor="15" AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5">
     <columnConstraints>
-      <ColumnConstraints hgrow="NEVER" minWidth="200" maxWidth="200" />
-      <ColumnConstraints hgrow="NEVER" minWidth="100" maxWidth="100" />
+      <ColumnConstraints hgrow="NEVER" minWidth="300" maxWidth="300" />
+      <ColumnConstraints hgrow="NEVER" minWidth="150" maxWidth="150" />
       <ColumnConstraints hgrow="SOMETIMES" />
     </columnConstraints>
     <rowConstraints>
@@ -27,23 +27,23 @@
       <RowConstraints vgrow="SOMETIMES" />
     </rowConstraints>
 
-    <ImageView fx:id="image" fitWidth="180" fitHeight="180" preserveRatio="true"
+    <ImageView fx:id="image" fitWidth="240" fitHeight="240" preserveRatio="true"
                GridPane.rowSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
 
-    <Label text="Name:" styleClass="label-bright"
+    <Label text="Name:" styleClass="label-big"
            GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-    <Label fx:id="articleDetails" styleClass="label-bright"
+    <Label fx:id="articleDetails" styleClass="label-big"
            GridPane.columnIndex="2" />
 
-    <Label text="Tags:" styleClass="label-bright" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+    <Label text="Tags:" styleClass="label-big" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
            GridPane.rowIndex="1" GridPane.columnIndex="1" />
     <FlowPane fx:id="tags" alignment="CENTER_LEFT"
               GridPane.rowIndex="1" GridPane.columnIndex="2" />
 
-    <Label text="Description:" styleClass="label-bright" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+    <Label text="Description:" styleClass="label-big" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
            GridPane.rowIndex="2" GridPane.columnIndex="1" />
     <StackPane GridPane.rowIndex="2" GridPane.columnIndex="2" >
-      <TextArea fx:id="description" editable="false" styleClass="text-area" />
+      <TextArea fx:id="description" editable="false" styleClass="text-area-big" wrapText="true" />
     </StackPane>
   </GridPane>
 </AnchorPane>
