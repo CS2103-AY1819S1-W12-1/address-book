@@ -815,6 +815,41 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 <div class="paragraph">
 <p>The <code>find-(FIELD)</code> command input is passed into an ArticleListParser object. The ArticleListParser reads the command word <code>find</code> and creates a <code>FindCommandParser</code> object that further parses the command input and creates a <code>FindCommand</code>. The <code>FindCommand</code> filters the the article list based on the keywords and updates the <code>Model</code> component on changes in the filtered article list.</p>
 </div>
+<div class="paragraph">
+<p>The <code>find</code> command is facilitated by the <code>Predicate</code> class, which have a number of predicates that determine the fields ad type of keyword matching that are supported by the search. The diagram below shows the different predicates implemented.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PredicateClassDiagram.PNG" alt="PredicateClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet shows an example of one type of predicate - <code>ResolvedAndContainsKeywordsPredicate</code>. If no keywords are given, all resolved articles will be returned. If keywords are given, all fields of an Article object will be matched.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">boolean</span> test(Article article) {
+        <span class="keyword">if</span> (keywords.isEmpty()) {
+            <span class="keyword">return</span> article.getIsResolved();
+        }
+        <span class="keyword">return</span> article.getIsResolved()
+                &amp;&amp; (keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getName().fullName, keyword))
+                || keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getPhone().value, keyword))
+                || keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getEmail().value, keyword))
+                || keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getDescription().value, keyword))
+                || keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getFinder().fullName, keyword))
+                || keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getOwner().fullName, keyword))
+                || keywords.stream().anyMatch(keyword -&gt;
+                StringUtil.containsWordIgnoreCase(article.getStringTags(), keyword)));
+    }</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
@@ -895,14 +930,16 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 <div class="paragraph">
 <p>In the ResolveCommand, a new <code>Article</code> object is created directly with the following information:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>Article editedArticle = new Article(articleToEdit.getName(), articleToEdit.getPhone(), articleToEdit.getEmail(),
-    articleToEdit.getDescription(), articleToEdit.getFinder(), owner, SET_ISRESOLVED, articleToEdit.getTags());</pre>
+<pre class="CodeRay highlight"><code data-lang="java">Article editedArticle = <span class="keyword">new</span> Article(articleToEdit.getName(), articleToEdit.getPhone(),
+    articleToEdit.getEmail(), articleToEdit.getDescription(),
+        articleToEdit.getFinder(), owner, SET_ISRESOLVED,
+            articleToEdit.getTags());</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Unlike the <code>edit</code> command where there can be multiple fields edited, only 2 fields - <code>owner</code> and <code>isResolved</code> is changed for the <code>resolve</code> feature. Thus, once the <code>owner</code> field is parsed and accepted, a new <code>Article</code> object can be created. The Article would have the same data as the target Article, except for the new <code>owner</code> and <code>isResolved</code> field.</p>
+<p>Unlike the <code>edit</code> command where there can be multiple fields edited, only 2 fields - <code>owner</code> and <code>isResolved</code> is changed for the <code>resolve</code> feature. The <code>isResolved</code> field is set to <code>true</code>, and  once the <code>owner</code> field is parsed and accepted, a new <code>Article</code> object can be created. The Article would have the same data as the target Article, except for the new <code>owner</code> and <code>isResolved</code> field. The target Article will be replaced with the newly created Article.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1967,4 +2004,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:08:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:10:54 UTC</div></div></div></body></html>
