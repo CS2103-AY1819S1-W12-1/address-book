@@ -32,8 +32,9 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#find-feature">3.2. Find feature</a></li>
 <li><a href="#resolve-feature">3.3. Resolve feature</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#image-class">3.4. Image Class</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -904,7 +905,7 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 <div class="sect2">
 <h3 id="resolve-feature"><a class="link" href="#resolve-feature">3.3. Resolve feature</a></h3>
 <div class="paragraph">
-<p>The <code>resolve</code> command allows users to resolve articles when they are claimed bu the owner.</p>
+<p>The <code>resolve</code> command allows users to resolve articles when they are claimed but the owner.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
@@ -980,14 +981,77 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="image-class"><a class="link" href="#image-class">3.4. Image Class</a></h3>
+<div class="paragraph">
+<p>Image class is created to introduce image into the ecosystem of the ArticleList with ease</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Current implementation of Image is possible with help of Sequence class, in which Sequence class is creating a unique id for any new image created, to ease the import of new image this is handled by <code>Image.create</code> as this method copies the image to the jar directory such that the original image can be deleted afterwards, and because of the unique id and writing it not on the same directory on update / edit make undo-redo operation po* <strong>Alternative 2:</strong> Creating it from random</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/imageclass.png" alt="imageclass" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 :</strong> creating the image name from a hash</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: If this is safe enough for git to use SHA-1 for commit message, it is good enough for us to use the image checksum as the name. or use stronger hash like SHA256 or even SHA-3 standard like KECCAK Hash</p>
+</li>
+<li>
+<p>Cons: We have weird and long names for the file and it&#8217;s harder to refer to the specific file if the user needed it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Creating it from random</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is statistically impossible to create the same random twice if the word length is long enough.</p>
+</li>
+<li>
+<p>Cons: It would be super long name to reduce the effect of birthday problem collision and reducing error.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current implementation):</strong> Sequence Class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It&#8217;s a sequence such that it is sequential, and the name generated would be super short, we can use this class for another thing as well to create such unique id.</p>
+</li>
+<li>
+<p>Cons: We have to create a class, introduce coupling and basically more work.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1018,7 +1082,7 @@ If the <code>currentStatePointer</code> is at index <code>articleListStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2004,4 +2068,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:27:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:31:50 UTC</div></div></div></body></html>
