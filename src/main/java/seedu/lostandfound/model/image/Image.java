@@ -7,9 +7,12 @@ import java.io.IOException;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
+import seedu.lostandfound.commons.core.LogsCenter;
 import seedu.lostandfound.commons.util.FileUtil;
 import seedu.lostandfound.model.util.Sequence;
+import seedu.lostandfound.storage.StorageManager;
 
 /**
  * Represents a Article's image in the article list.
@@ -18,6 +21,7 @@ import seedu.lostandfound.model.util.Sequence;
 public class Image {
     public static final String MESSAGE_CONSTRAINTS = "Path should be valid";
 
+    private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
     private static final String VALIDATION_REGEX = "(0|[1-9][0-9]*)\\.(png|svg|jpg|jpeg)";
     private static final Sequence SEQUENCE = Sequence.getInstance();
     private static final Path IMAGE_FOLDER = Paths.get("data", "images");
@@ -34,8 +38,10 @@ public class Image {
      * @param file a valid image file. will set a reference to that path.
      */
     public Image(String file) throws InvalidPathException {
+        logger.fine("Trying to set file as image");
         requireNonNull(file);
         checkArgument(isValid(file), MESSAGE_CONSTRAINTS);
+        logger.fine("File is valid");
         path = Paths.get(file);
         filename = FileUtil.getFilename(path);
         basename = FileUtil.getBasename(path);
