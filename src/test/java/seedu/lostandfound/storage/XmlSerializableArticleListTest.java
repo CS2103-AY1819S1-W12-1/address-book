@@ -1,5 +1,7 @@
 package seedu.lostandfound.storage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -9,6 +11,8 @@ import org.junit.rules.ExpectedException;
 
 import seedu.lostandfound.commons.exceptions.IllegalValueException;
 import seedu.lostandfound.commons.util.XmlUtil;
+import seedu.lostandfound.model.ArticleList;
+import seedu.lostandfound.testutil.TypicalArticles;
 
 public class XmlSerializableArticleListTest {
 
@@ -20,15 +24,15 @@ public class XmlSerializableArticleListTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    /*    @Test
-        public void toModelType_typicalArticlesFile_success() throws Exception {
-            XmlSerializableArticleList dataFromFile = XmlUtil.getDataFromFile(TYPICAL_ARTICLES_FILE,
-                    XmlSerializableArticleList.class);
-            ArticleList articleListFromFile = dataFromFile.toModelType();
-            ArticleList typicalArticlesArticleList = TypicalArticles.getTypicalArticleList();
-            assertEquals(articleListFromFile, typicalArticlesArticleList);
-            }
-    */
+    @Test
+    public void toModelType_typicalArticlesFile_success() throws Exception {
+        XmlSerializableArticleList dataFromFile = XmlUtil.getDataFromFile(TYPICAL_ARTICLES_FILE,
+                XmlSerializableArticleList.class);
+        ArticleList articleListFromFile = dataFromFile.toModelType();
+        ArticleList typicalArticlesArticleList = TypicalArticles.getTypicalArticleList();
+        assertEquals(articleListFromFile, typicalArticlesArticleList);
+    }
+
     @Test
     public void toModelType_invalidArticleFile_throwsIllegalValueException() throws Exception {
         XmlSerializableArticleList dataFromFile = XmlUtil.getDataFromFile(INVALID_ARTICLE_FILE,

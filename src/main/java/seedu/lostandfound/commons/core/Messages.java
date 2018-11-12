@@ -10,4 +10,5 @@ public class Messages {
     public static final String MESSAGE_INVALID_ARTICLE_DISPLAYED_INDEX = "The article index provided is invalid";
     public static final String MESSAGE_ARTICLES_LISTED_OVERVIEW = "%1$d articles listed!";
     public static final String MESSAGE_EDIT_INVALID_RESOLVED = "Resolved articles cannot be edited!";
+    public static final String MESSAGE_RESOLVE_INVALID_RESOLVED = "Resolved articles cannot be resolved again!";
 }

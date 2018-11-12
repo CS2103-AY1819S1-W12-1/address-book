@@ -4,7 +4,7 @@
         <name>Hans Bag</name>
         <phone isPrivate="false">9482424</phone>
         <email isPrivate="false">hans@example.com</email>
-        <description isPrivate="false">4th street</description>
+        <description isPrivate="false">Found at 4th street</description>
 		<finder isPrivate="false">Hans Muster</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false"> false</isResolved>
@@ -13,7 +13,7 @@
         <name>Ruth Wallet</name>
         <phone isPrivate="false">87249245</phone>
         <email isPrivate="false">ruth@example.com</email>
-        <description isPrivate="false">81th street</description>
+        <description isPrivate="false">Found at 81th street</description>
 		<finder isPrivate="false">Ruth Mueller</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -22,7 +22,7 @@
         <name>Heinz Phone</name>
         <phone isPrivate="false">95352563</phone>
         <email isPrivate="false">heinz@example.com</email>
-        <description isPrivate="false">wall street</description>
+        <description isPrivate="false">Found at wall street</description>
 		<finder isPrivate="false">Heinz Kurz</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -31,7 +31,7 @@
         <name>Cornelia Watch</name>
         <phone isPrivate="false">87652533</phone>
         <email isPrivate="false">cornelia@example.com</email>
-        <description isPrivate="false">10th street</description>
+        <description isPrivate="false">Found at 10th street</description>
 		<finder isPrivate="false">Cornelia Meier</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -40,7 +40,7 @@
         <name>Werner Thumbdrive</name>
         <phone isPrivate="false">9482224</phone>
         <email isPrivate="false">werner@example.com</email>
-        <description isPrivate="false">michegan ave</description>
+        <description isPrivate="false">Found at michegan ave</description>
 		<finder isPrivate="false">Werner Meyer</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -49,7 +49,7 @@
         <name>Lydia Paper</name>
         <phone isPrivate="false">9482427</phone>
         <email isPrivate="false">lydia@example.com</email>
-        <description isPrivate="false">little tokyo</description>
+        <description isPrivate="false">Found at little tokyo</description>
 		<finder isPrivate="false">Lydia Kunz</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -58,7 +58,7 @@
         <name>Anna Book</name>
         <phone isPrivate="false">9482442</phone>
         <email isPrivate="false">anna@example.com</email>
-        <description isPrivate="false">4th street</description>
+        <description isPrivate="false">Found at 4th street</description>
 		<finder isPrivate="false">Anna Best</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -67,7 +67,7 @@
         <name>Stefan Card</name>
         <phone isPrivate="false">8482424</phone>
         <email isPrivate="false">stefan@example.com</email>
-        <description isPrivate="false">little india</description>
+        <description isPrivate="false">Found at little india</description>
 		<finder isPrivate="false">Stefan Meier</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>
@@ -76,7 +76,7 @@
         <name>Martin Mouse</name>
         <phone isPrivate="false">8482131</phone>
         <email isPrivate="false">hans@example.com</email>
-        <description isPrivate="false">chicago ave</description>
+        <description isPrivate="false">Found at chicago ave</description>
 		<finder isPrivate="false">Martin Mueller</finder>
 		<owner isPrivate="false">Not Claimed</owner>
 		<isResolved isPrivate="false">false</isResolved>

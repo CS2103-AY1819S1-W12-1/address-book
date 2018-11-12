@@ -20,7 +20,7 @@ By: `Team W12-1`      Since: `Sep 2018`      Licence: `MIT`
 
 Welcome to *LostBUTFound*! *LostBUTFound* is a management tool designed to help *administrators manage lost and found articles*.
 
-Managing lost and found articles can be a frustrating experience, especially when there are a huge amount of articles to keep track of. LostBUTFound streamlines this management process and help you to increase your productivity.
+Managing lost and found articles can be a frustrating experience, especially when there are a huge amount of articles to keep track of. LostBUTFound streamlines this management process and help you to increase your productivity. Using LostBUTFound, you can manage articles, find relevant articles and resolve articles that have been claimed.
 
 More importantly, LostBUTFound is optimized for those who prefer to work with a Command Line Interface (CLI), while still having the benefits of a Graphical User Interface (GUI). Fast typists will find that LostBUTFound can manage lost and found articles faster than traditional GUI applications.
 
@@ -94,7 +94,7 @@ Format: `resolve INDEX o/OWNER`
 * The index must be a positive number 1, 2, 3, ...
 
 [IMPORTANT]
-`resolve` and `delete` commands are different. By resolving the article, the article entry would still exist in LostBUTFound for logging purposes in the case of claim disputes.
+`resolve` and `delete` are different commands . By resolving the article, the article entry would still exist in LostBUTFound for logging purposes in the case of claim disputes.
 
 Examples:
 
@@ -195,6 +195,19 @@ Examples:
 
 * `find-f John` returns unresolved article entries with finder `John Doe` and `John Ham`.
 * `find-f John Doe` returns unresolved article entries with finder `John Doe` and `John Hamilton Doe`.
+
+==== Finding unresolved articles by name: `find-t`
+Description: Finds unresolved articles whose tag's contains *all* of the given keywords.
+
+Format: `find-t KEYWORD [MORE_KEYWORDS]`
+
+* Only the tag field of unresolved articles will be searched.
+* Unresolved articles matching all the keyword in the tag field will be returned (AND operation).
+
+Examples:
+
+* `find-t black` returns unresolved article entries with tags containing `Black` or `black`.
+* `find-t black worn` returns unresolved article entries with tags `Black` and `worn`.
 
 ==== Finding unresolved articles by keyword: `findall`
 Description: Finds unresolved articles which contains *any* of the given keywords.

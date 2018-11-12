@@ -50,6 +50,10 @@ public class ResolveCommand extends Command {
 
         Article articleToEdit = lastShownList.get(targetIndex.getZeroBased());
 
+        if (articleToEdit.getIsResolved()) {
+            throw new CommandException(Messages.MESSAGE_RESOLVE_INVALID_RESOLVED);
+        }
+
         Article editedArticle = new Article(articleToEdit.getName(), articleToEdit.getPhone(),
                 articleToEdit.getEmail(), articleToEdit.getDescription(), articleToEdit.getImage(),
                 articleToEdit.getFinder(), owner, SET_ISRESOLVED, articleToEdit.getTags());

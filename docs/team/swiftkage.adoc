@@ -5,31 +5,33 @@
 
 == PROJECT: LostBUTFound
 
----
-
 == Overview
 
-LostBUTFound is a desktop application used for managing lost and found articles. Users will be able to manage the articles and view important information about them.
+LostBUTFound is a desktop application used for *managing lost and found articles*. Users will be able to manage the articles, find relevant articles and resolve articles that have been claimed.
 
 LostBUTFound has a graphical user interface built with JavaFX but most of the user interactions are done using command line interface. It is written in Java and has about 10 kLoC.
-
-This portfolio summarizes my contributions for the development of LostBUTFound. It showcases the software engineering knowledge and that I have applied throughout the project.
 
 == Summary of contributions
 
 * *Major enhancement*: added *the ability to resolve articles*
 ** What it does: It allows the user to resolve articles once it have been claimed by the owner. Resolved articles would still be stored for logging purposes and can be deleted using the `delete` command, but they cannot be edited. Resolved articles would also not appear in the list unless the `findresolved` command is executed.
-** Justification: This feature helps users keep track of both resolved and unresolved articles.
+** Justification: This feature helps users keep track of both resolved and unresolved articles. If there are claim disputes for articles that have previously been claimed, the administrator could find find the resolved article easily in LostBUTFound.
 
 * *Minor enhancement*: added *the ability to find articles based on specific fields*
 ** What it does: It allows the user to search for articles depending on different fields and parameters.
 ** Justification: This features helps users find relevant articles quickly and easily.
 
-* *Minor enhancement*: added *finder, owner, and isResolved attributes to Article*
-** What it does: It allows the user to keep track of the person who found and claimed the article, and whether the article have been resolved.
-** Justification: This features allows LostBUTFound to create a personalised experience for the user. Each article entry should contain all necessary information about the article.
+* *Code contributed*: [https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&search=swiftkage&sort=displayName&since=2018-09-12&until=2018-11-10&timeframe=day&reverse=false&repoSort=true[RepoSense Report]]
 
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+* *Other contributions*:
+
+** Project management
+*** Managed release `v1.3.1` on GitHub
+*** Responded and assigned issues to team members
+** Documentation:
+*** Overall update and format of User Guide, Developer Guide and ReadMe [https://github.com/CS2103-AY1819S1-W12-1/main/pull/71/commits/34f91727e4e30a99a4129c8ee0971088c17bee31[PR #71]] [https://github.com/CS2103-AY1819S1-W12-1/main/pull/122/commits/e065166655947ff0ac060964eedd9eceadf38c02[PR #122]]
+** Community:
+*** Reported bugs and suggestions for other teams in the class [https://github.com/CS2103-AY1819S1-T12-4/main/issues/154[#154]] [https://github.com/CS2103-AY1819S1-T12-4/main/issues/155[#155]] [https://github.com/CS2103-AY1819S1-T12-4/main/issues/159[#159]]
 
 == Contributions to the User Guide
 
@@ -47,8 +49,8 @@ include::../UserGuide.adoc[tag=findfeature]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-//include::../DeveloperGuide.adoc[tag=user]
 include::../DeveloperGuide.adoc[tag=find]
+
 include::../DeveloperGuide.adoc[tag=resolve]
 
 

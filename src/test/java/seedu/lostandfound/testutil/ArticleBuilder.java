@@ -20,8 +20,8 @@ public class ArticleBuilder {
     public static final String DEFAULT_NAME = "Nike Wallet";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
-    public static final String DEFAULT_DESCRIPTION = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_IMAGE = "data/images/0.png";
+    public static final String DEFAULT_DESCRIPTION = "Found at 123, Jurong West Ave 6";
     public static final boolean DEFAULT_ISRESOLVED = false;
     public static final String DEFAULT_FINDER = "Alice Pauline";
     public static final String DEFAULT_OWNER = "Not Claimed";
@@ -123,7 +123,7 @@ public class ArticleBuilder {
      * Sets the {@code isResolved} of the {@code Article} that we are building.
      */
     public ArticleBuilder withIsResolved(boolean isResolved) {
-        this.isResolved = false;
+        this.isResolved = isResolved;
         return this;
     }
 

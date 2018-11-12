@@ -29,17 +29,17 @@ public class TypicalArticles {
 
     public static final Article BAG = new ArticleBuilder().withFinder("Alice Pauline").withOwner("Not Claimed")
             .withDescription("Found at 123, Jurong West Ave 6").withEmail("alice@example.com").withName("Nike Bag")
-            .withPhone("94351253").withIsResolved(false).withTags("friends").build();
+            .withPhone("94351253").withIsResolved(false).withTags("Black").build();
     public static final Article WALLET = new ArticleBuilder().withFinder("Benson Meier")
             .withDescription("Found at 311, Clementi Ave 2").withName("Adidas Wallet")
             .withEmail("johnd@example.com").withPhone("98765432").withOwner("Not Claimed")
-            .withIsResolved(false).withTags("owesMoney", "friends").build();
+            .withIsResolved(false).withTags("Black", "Sticker").build();
     public static final Article WATCH = new ArticleBuilder().withName("Casio Watch").withPhone("95352563")
             .withEmail("heinz@example.com").withIsResolved(false).withDescription("Found at wall street")
             .withOwner("Not Claimed").withFinder("Carl Kurz").build();
     public static final Article HEADPHONE = new ArticleBuilder().withName("AfterShockz Headphone").withPhone("87652533")
             .withEmail("cornelia@example.com").withDescription("Found at 10th street").withOwner("Not Claimed")
-            .withFinder("Daniel Meier").withIsResolved(false).withTags("friends").build();
+            .withFinder("Daniel Meier").withIsResolved(false).withTags("Blue").build();
     public static final Article LAPTOP = new ArticleBuilder().withFinder("Elle Meyer").withPhone("9482224")
             .withEmail("werner@example.com").withDescription("Found at michegan ave").withIsResolved(false)
             .withName("Acer Aspire Laptop").withOwner("Not Claimed").build();

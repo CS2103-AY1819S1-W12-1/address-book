@@ -3,7 +3,7 @@ package seedu.lostandfound.model.article;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOUSE;
+import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_FINDER_MOUSE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_TAG_BLUE;
 import static seedu.lostandfound.testutil.TypicalArticles.BAG;
 import static seedu.lostandfound.testutil.TypicalArticles.MOUSE;
@@ -47,7 +47,7 @@ public class UniqueArticleListTest {
     public void contains_articleWithSameIdentityFieldsInList_returnsTrue() {
         uniqueArticleList.add(BAG);
         Article editedAlice = new ArticleBuilder(BAG)
-                .withDescription(VALID_DESCRIPTION_MOUSE).withTags(VALID_TAG_BLUE)
+                .withFinder(VALID_FINDER_MOUSE).withTags(VALID_TAG_BLUE)
                 .build();
         assertTrue(uniqueArticleList.contains(editedAlice));
     }
@@ -96,7 +96,7 @@ public class UniqueArticleListTest {
     public void setArticle_editedArticleHasSameIdentity_success() {
         uniqueArticleList.add(BAG);
         Article editedAlice = new ArticleBuilder(BAG)
-                .withDescription(VALID_DESCRIPTION_MOUSE).withTags(VALID_TAG_BLUE)
+                .withFinder(VALID_FINDER_MOUSE).withTags(VALID_TAG_BLUE)
                 .build();
         uniqueArticleList.setArticle(BAG, editedAlice);
         UniqueArticleList expectedUniqueArticleList = new UniqueArticleList();

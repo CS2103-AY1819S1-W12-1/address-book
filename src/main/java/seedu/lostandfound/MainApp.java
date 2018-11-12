@@ -87,7 +87,7 @@ public class MainApp extends Application {
             if (!articleListOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample ArticleList");
             }
-            initialData = articleListOptional.orElseGet(SampleDataUtil::getSampleArticleList);
+            initialData = articleListOptional.orElseGet(SampleDataUtil::getAllSampleArticleList);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty ArticleList");
             initialData = new ArticleList();

@@ -31,14 +31,18 @@ public class CommandTestUtil {
     public static final String VALID_NAME_MOUSE = "Wireless Mouse";
     public static final String VALID_FINDER_POWERBANK = "Amy Bee";
     public static final String VALID_FINDER_MOUSE = "Bob Choo";
+    public static final String VALID_OWNER_POWERBANK = "Cindy White";
+    public static final String VALID_OWNER_MOUSE = "David Chong";
     public static final String VALID_PHONE_POWERBANK = "11111111";
     public static final String VALID_PHONE_MOUSE = "22222222";
     public static final String VALID_EMAIL_POWERBANK = "amy@example.com";
     public static final String VALID_EMAIL_MOUSE = "bob@example.com";
-    public static final String VALID_DESCRIPTION_POWERBANK = "Block 312, Amy Street 1";
-    public static final String VALID_DESCRIPTION_MOUSE = "Block 123, Bobby Street 3";
+    public static final String VALID_DESCRIPTION_POWERBANK = "Found at 123, Jurong West Ave 6";
+    public static final String VALID_DESCRIPTION_MOUSE = "Found at Block 312, Amy Street 1";
     public static final String VALID_TAG_RED = "red";
     public static final String VALID_TAG_BLUE = "blue";
+    public static final boolean FALSE_ISRESOLVED = false;
+    public static final boolean TRUE_ISRESOLVED = true;
 
     public static final String NAME_DESC_POWERBANK = " " + PREFIX_NAME + VALID_NAME_POWERBANK;
     public static final String NAME_DESC_MOUSE = " " + PREFIX_NAME + VALID_NAME_MOUSE;

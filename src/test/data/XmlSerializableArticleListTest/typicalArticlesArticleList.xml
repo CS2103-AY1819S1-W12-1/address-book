@@ -5,28 +5,28 @@
         <name>Nike Bag</name>
         <phone>94351253</phone>
         <email>alice@example.com</email>
-        <description>123, Jurong West Ave 6, #08-111</description>
+        <description>Found at 123, Jurong West Ave 6</description>
 		<finder>Alice Pauline</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
-        <tagged>friends</tagged>
+        <tagged>Black</tagged>
     </articles>
     <articles>
         <name>Adidas Wallet</name>
         <phone>98765432</phone>
         <email>johnd@example.com</email>
-        <description>311, Clementi Ave 2, #02-25</description>
+        <description>Found at 311, Clementi Ave 2</description>
 		<finder>Benson Meier</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
-        <tagged>owesMoney</tagged>
-        <tagged>friends</tagged>
+        <tagged>Black</tagged>
+        <tagged>Sticker</tagged>
     </articles>
     <articles>
         <name>Casio Watch</name>
         <phone>95352563</phone>
         <email>heinz@example.com</email>
-        <description>wall street</description>
+        <description>Found at wall street</description>
 		<finder>Carl Kurz</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
@@ -35,17 +35,17 @@
         <name>AfterShockz Headphone</name>
         <phone>87652533</phone>
         <email>cornelia@example.com</email>
-        <description>10th street</description>
+        <description>Found at 10th street</description>
 		<finder>Daniel Meier</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
-        <tagged>friends</tagged>
+        <tagged>Blue</tagged>
     </articles>
     <articles>
         <name>Acer Aspire Laptop</name>
         <phone>9482224</phone>
         <email>werner@example.com</email>
-        <description>michegan ave</description>
+        <description>Found at michegan ave</description>
 		<finder>Elle Meyer</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
@@ -54,7 +54,7 @@
         <name>IPhone XS</name>
         <phone>9482427</phone>
         <email>lydia@example.com</email>
-        <description>little tokyo</description>
+        <description>Found at little tokyo</description>
 		<finder>Fiona Kunz</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
@@ -63,7 +63,7 @@
         <name>Matric Card</name>
         <phone>9482442</phone>
         <email>anna@example.com</email>
-        <description>4th street</description>
+        <description>Found at 4th street</description>
 		<finder>George Best</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>

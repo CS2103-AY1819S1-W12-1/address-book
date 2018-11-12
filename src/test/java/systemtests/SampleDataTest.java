@@ -45,7 +45,7 @@ public class SampleDataTest extends ArticleListSystemTest {
 
     @Test
     public void articleList_dataFileDoesNotExist_loadSampleData() {
-        Article[] expectedList = SampleDataUtil.getSampleArticles();
+        Article[] expectedList = SampleDataUtil.getUnresolvedSampleArticles();
         assertListMatching(getArticleListPanel(), expectedList);
     }
 }

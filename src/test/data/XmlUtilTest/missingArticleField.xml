@@ -3,10 +3,10 @@
 <article>
     <phone>9482424</phone>
     <email>hans@example</email>
-    <description>4th street</description>
     <image>data/images/0.png</image>
+    <description>Found at 4th street</description>
 	<finder>Hans Muster</finder>
 	<owner>Not Claimed</owner>
-	<isResolved> false</isResolved>
-    <tagged>friends</tagged>
+	<isResolved>false</isResolved>
+    <tagged>Black</tagged>
 </article>

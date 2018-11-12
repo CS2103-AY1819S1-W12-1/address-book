@@ -30,7 +30,7 @@ public class AddCommand extends Command {
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "Nike Wallet "
-            + PREFIX_DESCRIPTION + "Found at library on 11/5/18 12pm "
+            + PREFIX_DESCRIPTION + "Found at library at 12pm "
             + PREFIX_FINDER + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "

@@ -20,10 +20,9 @@ import static seedu.lostandfound.logic.commands.CommandTestUtil.PHONE_DESC_MOUSE
 import static seedu.lostandfound.logic.commands.CommandTestUtil.PHONE_DESC_POWERBANK;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.TAG_DESC_BLUE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.TAG_DESC_RED;
-import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_EMAIL_POWERBANK;
+import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_DESCRIPTION_POWERBANK;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_NAME_MOUSE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_NAME_POWERBANK;
-import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_PHONE_POWERBANK;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_TAG_BLUE;
 import static seedu.lostandfound.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.lostandfound.model.Model.PREDICATE_SHOW_ALL_ARTICLES;
@@ -94,14 +93,13 @@ public class EditCommandSystemTest extends ArticleListSystemTest {
         editedArticle = new ArticleBuilder(MOUSE).withName(VALID_NAME_POWERBANK).build();
         assertCommandSuccess(command, index, editedArticle);
 
-        /* Case: edit a article with new values same as another article's values but with different phone and email
+        /* Case: edit a article with new values same as another article's values but with different description
          * -> edited
          */
         index = INDEX_SECOND_ARTICLE;
-        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_MOUSE + PHONE_DESC_POWERBANK
-                + EMAIL_DESC_POWERBANK + DESCRIPTION_DESC_MOUSE + TAG_DESC_BLUE + TAG_DESC_RED;
-        editedArticle = new ArticleBuilder(MOUSE).withPhone(VALID_PHONE_POWERBANK)
-                .withEmail(VALID_EMAIL_POWERBANK).build();
+        command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_MOUSE + PHONE_DESC_MOUSE
+                + EMAIL_DESC_MOUSE + DESCRIPTION_DESC_POWERBANK + TAG_DESC_BLUE + TAG_DESC_RED;
+        editedArticle = new ArticleBuilder(MOUSE).withDescription(VALID_DESCRIPTION_POWERBANK).build();
         assertCommandSuccess(command, index, editedArticle);
 
         /* Case: clear tags -> cleared */

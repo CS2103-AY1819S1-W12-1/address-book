@@ -18,7 +18,7 @@ public class FindCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + "-(FIELD): Finds all articles which field contain all of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "FIELD: n(Name), d(Description), f(Finder)\n"
+            + "FIELD: n(Name), d(Description), f(Finder), t(Tag)\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + "-n alice";
 

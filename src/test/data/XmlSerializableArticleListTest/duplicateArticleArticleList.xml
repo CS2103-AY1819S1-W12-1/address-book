@@ -5,11 +5,11 @@
         <name>Alice Phone</name>
         <phone>94351253</phone>
         <email>alice@example.com</email>
-        <description>123, Jurong West Ave 6, #08-111</description>
+        <description>Found at 4th street</description>
 		<finder>Alice Pauline</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>
-        <tagged>friends</tagged>
+        <tagged>Black</tagged>
     </articles>
 
     <!-- Article with same identity as Alice Pauline -->
@@ -17,7 +17,7 @@
         <name>Alice Phone</name>
         <phone>94351253</phone>
         <email>pauline@example.com</email>
-        <description>4th street</description>
+        <description>Found at 4th street</description>
 		<finder>Alice Pauline</finder>
 		<owner>Not Claimed</owner>
 		<isResolved>false</isResolved>

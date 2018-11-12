@@ -18,7 +18,8 @@ import seedu.lostandfound.model.tag.Tag;
  * Contains utility methods for populating {@code ArticleList} with sample data.
  */
 public class SampleDataUtil {
-    public static Article[] getSampleArticles() {
+
+    public static Article[] getUnresolvedSampleArticles() {
         return new Article[] {
             new Article(new Name("Nike Wallet"), new Phone("87438807"), new Email("alexyeoh@example.com"),
                 new Description("Found at Blk 30 Geylang Street 29, #06-40"), Image.getDefault(), new Name("Alex Yeoh"),
@@ -43,9 +44,31 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyArticleList getSampleArticleList() {
+    public static Article[] getResolvedSampleArticles() {
+        return new Article[] {
+            new Article(new Name("Bluetooth speaker"), new Phone("92492021"), new Email("irfan@example.com"),
+                        new Description("Found at Blk 47 Tampines Street 20"), new Name("Irfan Ibrahim"),
+                        new Name("Roy Balakrishnan"), Boolean.TRUE, getTagSet("Blue")),
+            new Article(new Name("IPhone 7"), new Phone("92624417"), new Email("royb@example.com"),
+                        new Description("Found at Blk 45 Aljunied Street 85"), new Name("Roy Balakrishnan"),
+                        new Name("Alex Yeoh"), Boolean.TRUE, getTagSet("Gold"))
+        };
+    }
+
+    public static ReadOnlyArticleList getUnresolvedSampleArticleList() {
         ArticleList sampleAb = new ArticleList();
-        for (Article sampleArticle : getSampleArticles()) {
+        for (Article sampleArticle : getUnresolvedSampleArticles()) {
+            sampleAb.addArticle(sampleArticle);
+        }
+        return sampleAb;
+    }
+
+    public static ReadOnlyArticleList getAllSampleArticleList() {
+        ArticleList sampleAb = new ArticleList();
+        for (Article sampleArticle : getUnresolvedSampleArticles()) {
+            sampleAb.addArticle(sampleArticle);
+        }
+        for (Article sampleArticle : getResolvedSampleArticles()) {
             sampleAb.addArticle(sampleArticle);
         }
         return sampleAb;

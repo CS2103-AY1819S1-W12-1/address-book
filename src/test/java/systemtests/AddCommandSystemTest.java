@@ -21,6 +21,7 @@ import static seedu.lostandfound.logic.commands.CommandTestUtil.TAG_DESC_BLUE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.TAG_DESC_RED;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_DESCRIPTION_MOUSE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_EMAIL_MOUSE;
+import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_FINDER_MOUSE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_NAME_MOUSE;
 import static seedu.lostandfound.logic.commands.CommandTestUtil.VALID_PHONE_MOUSE;
 import static seedu.lostandfound.logic.parser.CliSyntax.PREFIX_TAG;
@@ -83,10 +84,10 @@ public class AddCommandSystemTest extends ArticleListSystemTest {
                 + FINDER_DESC_POWERBANK + DESCRIPTION_DESC_POWERBANK + TAG_DESC_RED;
         assertCommandSuccess(command, toAdd);
 
-        /* Case: add a article with all fields same as another article in the article list except phone and email
+        /* Case: add a article with all fields same as another article in the article list except description
          * -> added
          */
-        toAdd = new ArticleBuilder(POWERBANK).withPhone(VALID_PHONE_MOUSE).withEmail(VALID_EMAIL_MOUSE).build();
+        toAdd = new ArticleBuilder(POWERBANK).withDescription(VALID_DESCRIPTION_MOUSE).build();
         command = ArticleUtil.getAddCommand(toAdd);
         assertCommandSuccess(command, toAdd);
 
@@ -131,8 +132,8 @@ public class AddCommandSystemTest extends ArticleListSystemTest {
         command = ArticleUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_ARTICLE);
 
-        /* Case: add a duplicate article except with different description -> rejected */
-        toAdd = new ArticleBuilder(SHIRT).withDescription(VALID_DESCRIPTION_MOUSE).build();
+        /* Case: add a duplicate article except with different finder -> rejected */
+        toAdd = new ArticleBuilder(SHIRT).withFinder(VALID_FINDER_MOUSE).build();
         command = ArticleUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_ARTICLE);
 

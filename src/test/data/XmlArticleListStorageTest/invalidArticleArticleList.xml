@@ -5,9 +5,9 @@
         <name>N!ke W@llet</name>
         <phone isPrivate="false">9482424</phone>
         <email isPrivate="false">hans@example.com</email>
-        <description isPrivate="false">4th street</description>
+        <description isPrivate="false">Found at 4th street</description>
 		<finder isPrivate="false">Hans Muster</finder>
 		<owner isPrivate="false">Not Claimed</owner>
-		<isResolved isPrivate="false"> false</isResolved>
+		<isResolved isPrivate="false">false</isResolved>
     </articles>
 </articlelist>
